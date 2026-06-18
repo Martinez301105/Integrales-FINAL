@@ -156,6 +156,18 @@ def latex(expr: Any) -> str:
     return salida
 
 
+def latex_texto(texto: Any) -> str:
+    """Renderiza texto normal dentro de una formula LaTeX.
+
+    Evita que frases como "Integral exponencial" queden en modo matematico,
+    donde los espacios desaparecen y las letras se muestran en cursiva.
+    """
+    salida = str(texto)
+    salida = salida.replace("\\", r"\textbackslash{}")
+    salida = salida.replace("{", r"\{").replace("}", r"\}")
+    return rf"\text{{{salida}}}"
+
+
 TEORIA_ENLACES = {
     "automatica": {
         "titulo": "Glosario del proyecto",
@@ -1023,7 +1035,7 @@ def _con_detector(respuesta: dict[str, Any], metodo_detectado: str, razon: str) 
         0,
         paso(
             "Detección automática",
-            rf"\text{{Método detectado: }}\ {nombre}",
+            latex_texto(f"Metodo detectado: {nombre}"),
             razon,
             "deteccion",
         ),
@@ -1222,7 +1234,7 @@ def _respuesta_sust_trig(integrando_texto: str, integrando: sp.Expr, patron: tup
         [
             paso(
                 "Patrón detectado",
-                rf"\text{{{nombre_patron}}},\quad {cambio}",
+                rf"{latex_texto(nombre_patron)},\quad {cambio}",
                 "La raíz cuadrática coincide con una de las formas clásicas de sustitución trigonométrica.",
             ),
             paso(
@@ -1443,7 +1455,7 @@ def _resolver_definida_automatica(expresion_texto: str, limite_inferior: str, li
         ),
         paso(
             "Método detectado para la primitiva",
-            rf"\text{{{nombre}}}",
+            latex_texto(nombre),
             respuesta_indef.get("detector", {}).get("razon", "Se seleccionó el método más compatible con la forma del integrando."),
             "deteccion",
         ),
