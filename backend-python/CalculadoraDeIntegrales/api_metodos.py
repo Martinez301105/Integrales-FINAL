@@ -254,7 +254,7 @@ def construir_respuesta(
     pasos_detallados: list[dict[str, str]],
     advertencias: list[str] | None = None,
 ) -> dict[str, Any]:
-    """Estructura estándar backend -> frontend estilo Symbolab.
+    """Estructura estándar backend -> frontend estilo de calculo.
 
     Se conservan ``resultado`` y ``pasos`` para que el frontend anterior no
     se rompa, pero también se agrega ``pasos_detallados`` para una interfaz
@@ -1043,7 +1043,7 @@ def _con_detector(respuesta: dict[str, Any], metodo_detectado: str, razon: str) 
     respuesta["metodo_detectado"] = metodo_detectado
     respuesta["metodo_nombre"] = nombre
     respuesta["detector"] = {"metodo": metodo_detectado, "nombre": nombre, "razon": razon}
-    # Regenera la lista simple para compatibilidad con el frontend viejo.
+    # Regenera la lista simple para compatibilidad con el frontend anterior.
     respuesta["pasos"] = [p.get("latex", "") for p in pasos]
     return respuesta
 

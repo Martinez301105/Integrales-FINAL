@@ -195,8 +195,8 @@ button.secundario:hover{ background:#111827; }
 .tabla-glosario th:nth-child(3), .tabla-glosario td:nth-child(3){ width:190px; }
 .numero-glosario{ font-weight:bold; color:#334155; }
 
-/* ===== Capa visual tipo Symbolab para métodos de integración ===== */
-.buscador-symbolab{
+/* ===== Capa visual de calculo para métodos de integración ===== */
+.buscador-calculo{
     background:linear-gradient(180deg,#ffffff,#f8fafc);
     border:1px solid #dbe3ef;
     border-radius:18px;
@@ -249,13 +249,13 @@ button.secundario:hover{ background:#111827; }
     background:#111827;
     color:#ffffff;
 }
-.resultado-symbolab{
+.resultado-calculo{
     background:#ffffff;
     border:1px solid #dbe3ef;
     border-radius:18px;
     box-shadow:0 14px 32px rgba(15,23,42,.08);
 }
-.resultado-symbolab .detalle-pasos{
+.resultado-calculo .detalle-pasos{
     list-style:none;
     margin:0;
     padding:0;
@@ -302,7 +302,7 @@ button.secundario:hover{ background:#111827; }
     overflow-x:auto;
 }
 
-/* ===== Ajuste final: fondo anterior con mejoras visibles ===== */
+/* ===== Estilos generales de fondo y paneles ===== */
 html{
     background:#f4f4f4;
 }
@@ -319,7 +319,7 @@ body{
     background:white;
     color:#111827;
 }
-.panel,.contenedor-tabla,.buscador-symbolab,.resultado-symbolab{
+.panel,.contenedor-tabla,.buscador-calculo,.resultado-calculo{
     background:#ffffff;
     color:#111827;
 }
@@ -480,13 +480,13 @@ td.formula,.formula{
 
 
 /* =========================================================
-   AJUSTE FINAL: LEGIBILIDAD GENERAL Y RESPONSIVE
+   LEGIBILIDAD GENERAL Y RESPONSIVE
    ========================================================= */
 *,*::before,*::after{box-sizing:border-box;}
 html{font-size:16px;}
 body{color:#0f172a;line-height:1.65;overflow-x:hidden;}
 .centro-blanco{max-width:1200px;margin:0 auto;align-items:stretch;}
-.panel,.contenedor-tabla,.resultado,.resultado-symbolab,.buscador-symbolab,.glosario-pdf-card,.tarjeta-enlace-formal{max-width:100%;}
+.panel,.contenedor-tabla,.resultado,.resultado-calculo,.buscador-calculo,.glosario-pdf-card,.tarjeta-enlace-formal{max-width:100%;}
 .panel-cuerpo{padding:clamp(16px,3vw,28px);}
 .panel-titulo,.titulo-tabla{line-height:1.25;word-break:normal;}
 .ayuda,.descripcion p,.paso-explicacion,.enlace-teoria,.advertencia-calculo,.resultado-final{line-height:1.75;overflow-wrap:anywhere;}
@@ -520,7 +520,7 @@ th{font-weight:800;}
 .advertencia-calculo{border-left:6px solid #f59e0b;background:#fffbeb;color:#78350f;}
 mjx-container[display="true"]{display:block;padding:6px 0;}
 @media (max-width:850px){.pantalla-dividida{display:block;}.lateral{display:none;}.centro-blanco{width:100%;max-width:100%;padding:18px;}.header-negro{font-size:clamp(1.7rem,7vw,2.4rem);padding:18px 12px;line-height:1.2;}.panel-cuerpo{padding:16px;}.grid-form{grid-template-columns:1fr;}.botones{flex-direction:column;align-items:stretch;}.botones button,.botones .boton,button,.boton{width:100%;}.paso-toggle{align-items:flex-start;flex-direction:column;gap:6px;}.paso-toggle span:last-child{white-space:normal;font-size:.85rem;}.paso-latex{margin:10px 12px 14px;padding:12px;font-size:1rem;}table{min-width:560px;}th,td{padding:10px 12px;font-size:.95rem;}}
-@media (max-width:480px){.centro-blanco{padding:12px;}.panel{border-width:2px;}.panel-titulo{font-size:1.25rem;padding:10px;}.resultado,.resultado-symbolab{padding:12px;}.paso-toggle{padding:12px;}.regla-aplicada,.grafica-panel,.resultado-final{padding:12px;}}
+@media (max-width:480px){.centro-blanco{padding:12px;}.panel{border-width:2px;}.panel-titulo{font-size:1.25rem;padding:10px;}.resultado,.resultado-calculo{padding:12px;}.paso-toggle{padding:12px;}.regla-aplicada,.grafica-panel,.resultado-final{padding:12px;}}
 
 
 /* ===== Páginas teóricas nuevas ===== */
@@ -566,7 +566,7 @@ mjx-container[display="true"]{display:block;padding:6px 0;}
 }
 
 
-/* ===== Ajustes de enlaces formales ===== */
+/* ===== Enlaces formales ===== */
 .seccion-definiciones-formales{
     margin-top:28px;
 }
@@ -780,7 +780,7 @@ mjx-container[display="true"]{display:block;padding:6px 0;}
     box-sizing: border-box;
 }
 
-/* ===== Ajustes de enlaces formales e integral interactiva ===== */
+/* ===== Enlaces formales e integral interactiva ===== */
 .contenedor-integral-interactiva .controles-3b1b{
     margin-top:16px;
 }
@@ -822,7 +822,7 @@ mjx-container[display="true"]{display:block;padding:6px 0;}
 }
 
 
-/* ===== Corrección de contraste en la animación inicial ===== */
+/* ===== Contraste de la animacion inicial ===== */
 .descripcion .texto-integral-interactiva,
 .texto-integral-interactiva {
     color: #f8fafc !important;
@@ -857,7 +857,7 @@ mjx-container[display="true"]{display:block;padding:6px 0;}
 }
 
 
-/* ===== V7: cinemática informativa y ejemplos visuales ===== */
+/* ===== Cinematica informativa y ejemplos visuales ===== */
 .apoyo-cinematica-texto{
     background:#f8fafc;
     border:1px solid #dbe3ef;
@@ -952,7 +952,7 @@ mjx-container[display="true"]{display:block;padding:6px 0;}
     padding:6px 11px;
 }
 
-/* ===== V9: constantes y orden de cinemática ===== */
+/* ===== Constantes y orden de cinematica ===== */
 .cinematica-buscador{
     display:flex;
     flex-direction:column;
@@ -1015,7 +1015,7 @@ mjx-container[display="true"]{display:block;padding:6px 0;}
     .chart-wrap-esbozo canvas{min-height:410px;}
 }
 
-/* ===== Esbozo interactivo estilo Symbolab ===== */
+/* ===== Esbozo interactivo estilo de calculo ===== */
 .pagina-esbozo .centro-blanco{
     max-width: min(1580px, 98vw);
     width: 98vw;
@@ -1055,7 +1055,7 @@ mjx-container[display="true"]{display:block;padding:6px 0;}
     font-size:0.88rem;
     line-height:1.35;
 }
-.grafica-symbolab{
+.grafica-calculo{
     margin-top: 14px;
     padding: 12px;
     background:#ffffff !important;
@@ -1133,14 +1133,14 @@ mjx-container[display="true"]{display:block;padding:6px 0;}
     .chart-wrap-esbozo canvas{min-height:480px;}
 }
 
-/* ===== Ajustes v12: gráfica tipo Symbolab y datos compactos ===== */
+/* ===== Grafica y datos compactos ===== */
 .pagina-esbozo .centro-blanco{max-width:min(1760px,99vw);width:99vw;}
 .pagina-esbozo .panel-cuerpo{padding:12px;}
 .resumen-esbozo-compacto,
 .pagina-esbozo #esbozo-info{padding:8px 10px;margin-top:8px;}
 .chips-datos-esbozo{gap:6px;}
 .chips-datos-esbozo span{font-size:.78rem;padding:5px 8px;line-height:1.25;}
-.grafica-symbolab{padding:10px;margin-top:10px;}
+.grafica-calculo{padding:10px;margin-top:10px;}
 .chart-wrap-esbozo{min-height:760px;border:1.5px solid #64748b;}
 .chart-wrap-esbozo canvas{min-height:740px;}
 .toolbar-grafica-botones button{min-height:31px;padding:6px 10px;font-size:.82rem;}

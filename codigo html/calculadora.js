@@ -202,7 +202,7 @@ function fmtNum(x){ return Number.isFinite(x) ? (Math.abs(x) < 1e-12 ? '0' : Num
 function fmtLatexNum(x){ return Number.isFinite(x) ? fmtNum(x) : String.raw`\text{Sin resultado numérico}`; }
 function flatex(f){ return f.toLatex(); }
 function renderMath(root=document.body){
-    // KaTeX para renderizado rápido tipo Symbolab. Si la página no cargó KaTeX, se conserva MathJax.
+    // KaTeX para renderizado rápido de calculo. Si la página no cargó KaTeX, se conserva MathJax.
     if(window.renderMathInElement){
         renderMathInElement(root || document.body, {
             delimiters: [
@@ -297,7 +297,7 @@ function pasosHTML(titulo,lineas,extra=''){
             <div class="paso-latex">\\[${p.latex}\\]</div>
         </div>`).join('');
     const pasosHTMLInterno = pasos.length ? `<div class="pasos-seccion"><h4>Desarrollo paso a paso</h4>${items}</div>` : '';
-    return `<div class="resultado resultado-symbolab"><h3>${escapeHtml(titulo)}</h3>${reglaHTML}${pasosHTMLInterno}${extra}</div>`;
+    return `<div class="resultado resultado-calculo"><h3>${escapeHtml(titulo)}</h3>${reglaHTML}${pasosHTMLInterno}${extra}</div>`;
 }
 function mostrarPasos(id,titulo,lineas,extra=''){
     const cont = $(id); if(!cont) return;
@@ -2512,13 +2512,13 @@ function inicializarPaginaEsbozoIntegralDefinida(){
 function renderMetodoForm(){
     const tipo=val('tipo-metodo'), zona=$('form-metodo'); limpiarResultado('resultado-metodo'); if(!zona) return;
     if(tipo==='cambio'){
-        zona.innerHTML = `<div class="buscador-symbolab"><div class="ayuda">Cambio de variable por composición. Escribe los dos factores del teorema: la función compuesta \(f(g(x))\) y el factor derivada \(g'(x)\). Por ejemplo, para \(\int 2x\cos(x^2)\,dx\) escribe \(\cos(x^2)\) y \(2x\). No uses \(u\) ni despejes \(x\).</div><div class="grid-form">${inputMath('Función compuesta f(g(x))','cv-compuesta','Ej. cos(x^2)',false)}${inputMath("Factor derivada g'(x)",'cv-derivada','Ej. 2*x',false)}</div><div class="botones"><button type="button" onclick="Calculadora.calcularCambioVariable()">Calcular paso a paso</button></div></div>`;
+        zona.innerHTML = `<div class="buscador-calculo"><div class="ayuda">Cambio de variable por composición. Escribe los dos factores del teorema: la función compuesta \(f(g(x))\) y el factor derivada \(g'(x)\). Por ejemplo, para \(\int 2x\cos(x^2)\,dx\) escribe \(\cos(x^2)\) y \(2x\). No uses \(u\) ni despejes \(x\).</div><div class="grid-form">${inputMath('Función compuesta f(g(x))','cv-compuesta','Ej. cos(x^2)',false)}${inputMath("Factor derivada g'(x)",'cv-derivada','Ej. 2*x',false)}</div><div class="botones"><button type="button" onclick="Calculadora.calcularCambioVariable()">Calcular paso a paso</button></div></div>`;
     }else if(tipo==='partes'){
-        zona.innerHTML = `<div class="buscador-symbolab"><div class="ayuda">Integración por partes automática. Escribe solo el integrando; el sistema identifica \(f(x)\), \(g'(x)\), \(f'(x)\), \(g(x)\), aplica el teorema y resuelve la integral restante.</div><div class="grid-form">${inputMath('Integrando','pp-integrando','Ej. x*exp(x), x*sen(x), log(x)',true)}</div><div class="botones"><button type="button" onclick="Calculadora.calcularPorPartes()">Calcular paso a paso</button></div></div>`;
+        zona.innerHTML = `<div class="buscador-calculo"><div class="ayuda">Integración por partes automática. Escribe solo el integrando; el sistema identifica \(f(x)\), \(g'(x)\), \(f'(x)\), \(g(x)\), aplica el teorema y resuelve la integral restante.</div><div class="grid-form">${inputMath('Integrando','pp-integrando','Ej. x*exp(x), x*sen(x), log(x)',true)}</div><div class="botones"><button type="button" onclick="Calculadora.calcularPorPartes()">Calcular paso a paso</button></div></div>`;
     }else if(tipo==='trigsub'){
         zona.innerHTML = `<div class="grid-form"><div class="campo"><label>Tipo</label><select id="st-tipo"><option value="1">∫ sqrt(a^2 - x^2) dx</option><option value="2">∫ 1/sqrt(a^2 - x^2) dx</option><option value="3">∫ sqrt(a^2 + x^2) dx</option><option value="4">∫ 1/sqrt(a^2 + x^2) dx</option><option value="5">∫ sqrt(x^2 - a^2) dx</option></select></div>${campo('a','st-a','text','Ej. 3')}</div><div class="botones"><button type="button" onclick="Calculadora.calcularSustTrig()">Calcular</button></div>`;
     }else if(tipo==='fracciones'){
-        zona.innerHTML = `<div class="buscador-symbolab"><div class="ayuda">Fracciones parciales con función racional original o ya separada. Puedes escribir formas como \((3x+5)/(x^2+x-2)\), \(3/(x-2)+5/(x+1)\), \(x^2/(x+1)\) o incluso \(\int (3x+5)/(x^2+x-2)\,dx\).</div><div class="grid-form">${inputMath('Función racional','fp-exp','Ej. (3*x+5)/(x^2+x-2)',true)}</div><div class="botones"><button type="button" onclick="Calculadora.calcularFraccionesParciales()">Calcular paso a paso</button></div></div>`;
+        zona.innerHTML = `<div class="buscador-calculo"><div class="ayuda">Fracciones parciales con función racional original o ya separada. Puedes escribir formas como \((3x+5)/(x^2+x-2)\), \(3/(x-2)+5/(x+1)\), \(x^2/(x+1)\) o incluso \(\int (3x+5)/(x^2+x-2)\,dx\).</div><div class="grid-form">${inputMath('Función racional','fp-exp','Ej. (3*x+5)/(x^2+x-2)',true)}</div><div class="botones"><button type="button" onclick="Calculadora.calcularFraccionesParciales()">Calcular paso a paso</button></div></div>`;
     }
     renderMath();
 }
