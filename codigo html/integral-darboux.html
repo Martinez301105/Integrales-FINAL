@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Integral de Darboux</title>
+    <link rel="stylesheet" href="estilos-calculadora.css">
+    <script>
+window.MathJax = {tex: {inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']]}, svg: {fontCache: 'global'}};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" id="MathJax-script" async></script>
+</head>
+<body>
+<div class="header-negro">Cálculo</div>
+<div class="pantalla-dividida">
+    <div class="lateral"></div>
+    <main class="centro-blanco">
+        <a href="integral-definida.html" class="btn-volver">← Volver a Integral definida</a>
+
+        <section id="integral-darboux" class="panel">
+            <div class="panel-titulo">INTEGRAL DE DARBOUX</div>
+            <div class="panel-cuerpo">
+                <div class="ayuda definicion-darboux">Elige si quieres calcular suma inferior, suma superior o ambas. La página mostrará la regla, los ínfimos/supremos aproximados y la tabla. <a href="glosario.pdf#page=8" target="_blank" rel="noopener noreferrer">Ver definición de integral de Darboux en glosario.pdf</a>.</div>
+                <div class="grid-form">
+                    <div class="campo campo-math"><label>Función f(x)</label><input id="dar-f" type="text" placeholder="Ej. x^2, sen(x), 1/(x+2)" oninput="Calculadora.actualizarVistaLatex('dar-f','dar-f-preview',false)"><div id="dar-f-preview" class="preview-latex">\[\text{Escribe }f(x)\]</div></div>
+                    <div class="campo"><label>Partición P = {t0,...,tn}</label><input id="dar-p" type="text" placeholder="Ej. 0, 1/4, 1/2, 1"></div>
+                    <div class="campo"><label>Tipo de suma</label><select id="dar-tipo-suma"><option value="inferior">Suma inferior</option><option value="superior">Suma superior</option><option value="ambas">Inferior y superior</option></select></div>
+                    <div class="campo"><label>Muestras para aproximar ínfimo/supremo</label><input id="dar-m" type="number" value="100" min="10"></div>
+                </div>
+                <div class="botones"><button type="button" onclick="Calculadora.calcularDarboux()">Calcular Darboux</button></div>
+                <div id="resultado-darboux"></div>
+            </div>
+        </section>
+
+
+
+        
+    </main>
+</div>
+<script src="config.js"></script>
+<script src="calculadora.js"></script>
+</body>
+</html>

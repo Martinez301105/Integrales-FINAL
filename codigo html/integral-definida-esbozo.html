@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esbozo de la función</title>
+    <link rel="stylesheet" href="estilos-calculadora.css">
+    <script>
+window.MathJax = {tex: {inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']]}, svg: {fontCache: 'global'}};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" id="MathJax-script" async></script>
+</head>
+<body class="pagina-esbozo">
+<div class="header-negro">Cálculo</div>
+<div class="pantalla-dividida">
+    <div class="lateral"></div>
+    <main class="centro-blanco">
+        <a href="integral-definida.html" id="esbozo-volver" class="btn-volver">← Volver</a>
+
+        <section class="panel">
+            <div class="panel-titulo" id="esbozo-titulo">ESBOZO DE LA INTEGRAL DEFINIDA</div>
+            <div class="panel-cuerpo">
+                <p class="ayuda" id="esbozo-descripcion">
+                    Aquí se muestra un recurso visual para interpretar la integral definida.
+                </p>
+
+                <div id="esbozo-resumen" class="resumen-cinematica resumen-esbozo-compacto"></div>
+
+                <div id="esbozo-control-rectangulos" class="buscador-symbolab" style="display:none;">
+                    <div class="grid-form">
+                        <div class="campo">
+                            <label>Número de rectángulos n</label>
+                            <input id="esbozo-n" type="number" min="1" max="100" placeholder="Ingresa un número natural de 1 a 100">
+                        </div>
+                        <div class="campo">
+                            <label>Método de muestreo</label>
+                            <select id="esbozo-metodo">
+                                <option value="izquierda">Extremo izquierdo</option>
+                                <option value="derecha">Extremo derecho</option>
+                                <option value="medio" selected>Punto medio</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="botones">
+                        <button type="button" onclick="Calculadora.actualizarEsbozoIntegralDefinida()">Actualizar esbozo</button>
+                    </div>
+                </div>
+
+                <div class="grafica-panel grafica-panel-clara grafica-symbolab">
+                    <div class="toolbar-grafica">
+                        <h4 id="esbozo-grafica-titulo">Gráfica</h4>
+                        <div class="toolbar-grafica-botones">
+                            <button type="button" onclick="Calculadora.zoomEsbozoGrafica(0.75)">Acercar +</button>
+                            <button type="button" onclick="Calculadora.zoomEsbozoGrafica(1.35)">Alejar −</button>
+                            <button type="button" onclick="Calculadora.resetEsbozoGrafica()">Reiniciar vista</button>
+                        </div>
+                    </div>
+                    <p class="ayuda ayuda-grafica-interactiva">
+                        Usa la rueda del mouse para hacer zoom. Mantén clic y arrastra para moverte por el plano cartesiano.
+                    </p>
+                    <div class="chart-wrap chart-wrap-esbozo">
+                        <canvas id="esbozo-canvas" aria-label="Esbozo de la función"></canvas>
+                    </div>
+                    <div id="esbozo-coordenadas" class="coordenadas-grafica">x = —, y = —</div>
+                </div>
+
+                <div id="esbozo-info" class="resumen-cinematica"></div>
+            </div>
+        </section>
+    </main>
+</div>
+<script src="config.js"></script>
+<script src="calculadora.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+    if(window.Calculadora && Calculadora.inicializarPaginaEsbozoIntegralDefinida){
+        Calculadora.inicializarPaginaEsbozoIntegralDefinida();
+    }
+});
+</script>
+</body>
+</html>

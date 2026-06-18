@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Integral definida</title>
+    <link rel="stylesheet" href="estilos-calculadora.css">
+    <script>
+window.MathJax = {tex: {inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']]}, svg: {fontCache: 'global'}};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" id="MathJax-script" async></script>
+</head>
+<body>
+<div class="header-negro">Cálculo</div>
+<div class="pantalla-dividida">
+    <div class="lateral"></div>
+    <main class="centro-blanco">
+        <a href="index.html" class="btn-volver">← Volver al Menú Principal</a>
+
+        <section class="panel">
+            <div class="panel-titulo">INTEGRAL DEFINIDA</div>
+            <div class="panel-cuerpo">
+                <p class="ayuda">
+                    Escribe el integrando y los límites de integración. La calculadora detecta automáticamente el método para
+                    encontrar la primitiva y después evalúa el resultado con el teorema fundamental del cálculo.
+                    Los límites y constantes numéricas están restringidos a máximo 10 cifras; la función puede ser larga.
+                </p>
+
+                <div class="buscador-symbolab">
+                    <input id="auto-modo" type="hidden" value="definida">
+
+                    <div class="grid-form">
+                        <div class="campo campo-math">
+                            <label>Integrando f(x)</label>
+                            <input id="auto-exp" type="text" placeholder="Ej. x/(x^2+1), 2*x*cos(x^2), (3*x+5)/(x^2+x-2)" oninput="Calculadora.actualizarVistaLatex('auto-exp','auto-exp-preview',true)">
+                            <div id="auto-exp-preview" class="preview-latex">\[\text{Escribe el integrando}\]</div>
+                            <div class="teclado-math">
+                                <button type="button" class="tecla-math" onclick="Calculadora.insertarMath('auto-exp','x^2')">x²</button>
+                                <button type="button" class="tecla-math" onclick="Calculadora.insertarMath('auto-exp','x^()')">xⁿ</button>
+                                <button type="button" class="tecla-math" onclick="Calculadora.insertarMath('auto-exp','sqrt()')">√</button>
+                                <button type="button" class="tecla-math" onclick="Calculadora.insertarMath('auto-exp','\\frac{}{}')">frac</button>
+                                <button type="button" class="tecla-math" onclick="Calculadora.insertarMath('auto-exp','sen()')">sen</button>
+                                <button type="button" class="tecla-math" onclick="Calculadora.insertarMath('auto-exp','cos()')">cos</button>
+                                <button type="button" class="tecla-math" onclick="Calculadora.insertarMath('auto-exp','log()')">log</button>
+                                <button type="button" class="tecla-math" onclick="Calculadora.insertarMath('auto-exp','exp(x)')">e^x</button>
+                                <button type="button" class="tecla-math" onclick="Calculadora.insertarMath('auto-exp','pi')">π</button>
+                                <button type="button" class="tecla-math" onclick="Calculadora.insertarMath('auto-exp','e')">e</button>
+                                <button type="button" class="tecla-math" onclick="Calculadora.insertarMath('auto-exp','phi')">φ</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid-form">
+                        <div class="campo">
+                            <label>Límite inferior a</label>
+                            <input id="auto-a" type="text" data-max-digits="10" placeholder="Ej. 0, pi, e, phi">
+                        </div>
+                        <div class="campo">
+                            <label>Límite superior b</label>
+                            <input id="auto-b" type="text" data-max-digits="10" placeholder="Ej. 2, pi, e, phi">
+                        </div>
+                    </div>
+
+                    <div class="botones">
+                        <button type="button" onclick="Calculadora.calcularAutomatica()">Calcular integral definida</button>
+                        <button type="button" class="secundario" onclick="Calculadora.abrirEsbozoIntegralDefinida('rectangulos')">Ver esbozo con rectángulos</button>
+                    </div>
+                    <p class="ayuda ayuda-botones-esbozo">
+                        El esbozo se abre en otra pestaña. Ahí puedes aumentar hasta 100 rectángulos, moverte sobre la gráfica,
+                        acercarte y alejarte para ver cómo se aproxima el área bajo la curva.
+                    </p>
+                </div>
+
+                <div class="enlace-teoria">
+                    <b>Referencia principal:</b> archivo glosario.pdf incluido en la página.<br>
+                    <a href="glosario.pdf" target="_blank" rel="noopener noreferrer">Abrir glosario.pdf</a>
+                </div>
+
+                <div class="enlace-teoria enlaces-definida-glosario">
+                    <b>Definiciones importantes:</b><br>
+                    <a href="glosario.pdf#page=9" target="_blank" rel="noopener noreferrer">Ver definición de suma de Riemann en glosario.pdf</a><br>
+                    <a href="glosario.pdf#page=8" target="_blank" rel="noopener noreferrer">Ver definición de integral de Darboux en glosario.pdf</a>
+                </div>
+
+                <div id="resultado-auto"></div>
+            </div>
+        </section>
+
+
+
+        
+        <section class="panel panel-opciones-definida">
+            <div class="panel-titulo">RECURSOS DE INTEGRAL DEFINIDA</div>
+            <div class="panel-cuerpo">
+                <p class="ayuda">
+                    Estas herramientas se abren en una página separada para mantener la calculadora principal limpia.
+                    Elige el recurso que quieres usar y después ingresa la función, la partición o los límites.
+                </p>
+                <div class="lista-enlaces-formales tarjetas-definida">
+                    <a class="boton-enlace" href="area-entre-curvas.html">Área entre curvas</a>
+                    <a class="boton-enlace" href="suma-riemann.html">Suma de Riemann</a>
+                    <a class="boton-enlace" href="integral-darboux.html">Integral de Darboux</a>
+                </div>
+            </div>
+        </section>
+
+<section id="apoyos-definida" class="panel seccion-definiciones-formales">
+            <div class="panel-titulo">APOYOS PARA INTEGRALES DEFINIDAS</div>
+            <div class="panel-cuerpo">
+                <div class="lista-enlaces-formales">
+                    <a class="boton-enlace" href="metodo-trapecio.html">Método del trapecio</a>
+                    <a class="boton-enlace" href="definiciones-formales.html">Integral definida, convergencia y divergencia</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <div class="lateral"></div>
+</div>
+<script src="config.js"></script>
+<script src="calculadora.js"></script>
+</body>
+</html>

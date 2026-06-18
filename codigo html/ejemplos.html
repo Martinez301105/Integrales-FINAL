@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplos</title>
+    <link rel="stylesheet" href="estilos-calculadora.css">
+    <script>
+window.MathJax = {tex: {inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']]}, svg: {fontCache: 'global'}};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" id="MathJax-script" async></script>
+</head>
+<body>
+<div class="header-negro">Cálculo</div>
+<div class="pantalla-dividida">
+    <div class="lateral"></div>
+    <main class="centro-blanco pagina-teoria">
+        <a href="index.html" class="btn-volver">← Volver al Menú Principal</a>
+
+        <section class="panel ejemplos-panel">
+            <div class="panel-titulo">EJEMPLOS DE CÁLCULO</div>
+            <div class="panel-cuerpo">
+                <p class="ayuda">
+                    Copia una entrada, pégala en la calculadora correspondiente y observa qué método detecta el programa.
+                </p>
+
+                <h2>Entradas rápidas</h2>
+                <div class="ejemplos-grid">
+                    <div class="ejemplo-card">
+                        <span class="badge-ejemplo">Indefinida</span>
+                        <h3>Polinomio</h3>
+                        <code>x^3 + 2*x - 5</code>
+                        <div class="flecha-ejemplo">↓</div>
+                        <p>La calculadora integra término por término.</p>
+                    </div>
+                    <div class="ejemplo-card">
+                        <span class="badge-ejemplo">Definida</span>
+                        <h3>Área acumulada</h3>
+                        <code>f(x)=x^2, a=0, b=1</code>
+                        <div class="flecha-ejemplo">↓</div>
+                        <p>El resultado esperado es \(1/3\).</p>
+                    </div>
+                    <div class="ejemplo-card">
+                        <span class="badge-ejemplo">Cinemática</span>
+                        <h3>Velocidad</h3>
+                        <code>v(t)=t^2-4*t+3, t₁=0, t₂=5</code>
+                        <div class="flecha-ejemplo">↓</div>
+                        <p>La gráfica muestra velocidad, desplazamiento y distancia.</p>
+                    </div>
+                </div>
+
+                <h2>Tres métodos de integración</h2>
+                <div class="metodos-visuales">
+                    <div class="metodo-card">
+                        <div class="metodo-numero">1</div>
+                        <h3>Por partes</h3>
+                        <code>x*exp(x)</code>
+                        <p>Útil cuando aparece un producto de funciones.</p>
+                        <div class="resultado-mini">\[\int xe^x\,dx=e^x(x-1)+C\]</div>
+                    </div>
+                    <div class="metodo-card">
+                        <div class="metodo-numero">2</div>
+                        <h3>Fracciones parciales</h3>
+                        <code>(3*x+5)/(x^2+x-2)</code>
+                        <p>Útil para funciones racionales.</p>
+                        <div class="resultado-mini">\[\frac{P(x)}{Q(x)}\to \frac{A}{x-1}+\frac{B}{x+2}\]</div>
+                    </div>
+                    <div class="metodo-card">
+                        <div class="metodo-numero">3</div>
+                        <h3>Sustitución trigonométrica</h3>
+                        <code>sqrt(9-x^2)</code>
+                        <p>Útil cuando aparece una raíz con forma \(a^2-x^2\).</p>
+                        <div class="resultado-mini">\[\sqrt{a^2-x^2}\]</div>
+                    </div>
+                </div>
+
+                <div class="enlace-teoria">
+                    <b>Referencia principal:</b> archivo glosario.pdf incluido en la página.<br>
+                    <a href="glosario.pdf" target="_blank" rel="noopener noreferrer">Abrir glosario.pdf</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <div class="lateral"></div>
+</div>
+<script src="config.js"></script>
+<script src="calculadora.js"></script>
+</body>
+</html>

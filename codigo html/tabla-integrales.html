@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAC - Tabla de Integrales</title><link rel="stylesheet" href="estilos-calculadora.css">
+    <script>window.MathJax = {tex: {inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']]}, svg: {fontCache: 'global'}};</script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" id="MathJax-script" async></script>
+</head>
+<body><div class="header-negro">Cálculo</div><div class="pantalla-dividida"><div class="lateral"></div><div class="centro-blanco">
+<a href="apoyos.html" class="btn-volver">← Volver a Apoyos</a>
+<div class="contenedor-tabla"><div class="titulo-tabla">TABLA DE INTEGRALES</div><table><thead><tr><th style="width:50%;">FUNCIÓN SIMPLE</th><th style="width:50%;">FUNCIÓN COMPUESTA</th></tr></thead><tbody>
+<tr><td>\(\int x^n\,dx=\frac{x^{n+1}}{n+1}+C,\quad n\neq -1\)</td><td>\(\int f(x)^n f'(x)\,dx=\frac{f(x)^{n+1}}{n+1}+C,\quad n\neq -1\)</td></tr>
+<tr><td>\(\int \frac{1}{x}\,dx=\log|x|+C\)</td><td>\(\int \frac{f'(x)}{f(x)}\,dx=\log|f(x)|+C\)</td></tr>
+<tr><td>\(\int e^x\,dx=e^x+C\)</td><td>\(\int e^{f(x)}f'(x)\,dx=e^{f(x)}+C\)</td></tr>
+<tr><td>\(\int a^x\,dx=\frac{a^x}{\log(a)}+C\)</td><td>\(\int a^{f(x)}f'(x)\,dx=\frac{a^{f(x)}}{\log(a)}+C\)</td></tr>
+<tr><td>\(\int \operatorname{sen}(x)\,dx=-\cos(x)+C\)</td><td>\(\int \operatorname{sen}(f(x))f'(x)\,dx=-\cos(f(x))+C\)</td></tr>
+<tr><td>\(\int \cos(x)\,dx=\operatorname{sen}(x)+C\)</td><td>\(\int \cos(f(x))f'(x)\,dx=\operatorname{sen}(f(x))+C\)</td></tr>
+<tr><td>\(\int \tan(x)\,dx=-\log|\cos(x)|+C\)</td><td>\(\int \tan(f(x))f'(x)\,dx=-\log|\cos(f(x))|+C\)</td></tr>
+<tr><td>\(\int \cot(x)\,dx=\log|\operatorname{sen}(x)|+C\)</td><td>\(\int \cot(f(x))f'(x)\,dx=\log|\operatorname{sen}(f(x))|+C\)</td></tr>
+<tr><td>\(\int \sec^2(x)\,dx=\tan(x)+C\)</td><td>\(\int \sec^2(f(x))f'(x)\,dx=\tan(f(x))+C\)</td></tr>
+<tr><td>\(\int \csc^2(x)\,dx=-\cot(x)+C\)</td><td>\(\int \csc^2(f(x))f'(x)\,dx=-\cot(f(x))+C\)</td></tr>
+<tr><td>\(\int \frac{1}{\sqrt{1-x^2}}\,dx=\operatorname{arcsen}(x)+C\)</td><td>\(\int \frac{f'(x)}{\sqrt{1-f(x)^2}}\,dx=\operatorname{arcsen}(f(x))+C\)</td></tr>
+<tr><td>\(\int \frac{-1}{\sqrt{1-x^2}}\,dx=\arccos(x)+C\)</td><td>\(\int \frac{-f'(x)}{\sqrt{1-f(x)^2}}\,dx=\arccos(f(x))+C\)</td></tr>
+<tr><td>\(\int \frac{1}{1+x^2}\,dx=\arctan(x)+C\)</td><td>\(\int \frac{f'(x)}{1+f(x)^2}\,dx=\arctan(f(x))+C\)</td></tr>
+</tbody></table></div></div><div class="lateral"></div></div></body></html>

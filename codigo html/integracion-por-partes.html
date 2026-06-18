@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Integración por partes</title>
+    <link rel="stylesheet" href="estilos-calculadora.css">
+    <script>window.MathJax = {tex: {inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']]}, svg: {fontCache: 'global'}};</script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" id="MathJax-script" async></script>
+</head>
+<body>
+<div class="header-negro">Cálculo</div>
+<div class="pantalla-dividida">
+    <div class="lateral"></div>
+    <main class="centro-blanco">
+        <a href="metodos-integracion.html" class="btn-volver">← Volver a métodos de integración</a>
+        <section class="panel pagina-teoria">
+            <div class="panel-titulo">INTEGRACIÓN POR PARTES</div>
+            <div class="panel-cuerpo">
+                <p class="ayuda">La integración por partes se deriva de la regla del producto de derivadas. Es útil cuando el integrando es un producto de funciones.</p>
+
+                <h2>Teorema para la integración por partes</h2>
+                <p>Sean \(f,g:[a,b]\to \mathbb{R}\) funciones tales que \(f'\) y \(g'\) son integrables. Entonces:</p>
+
+                <div class="formula-bloque">
+                    \[
+                    \int_a^b f(t)g'(t)\,dt
+                    =
+                    (fg)(t)\Big|_a^b
+                    -
+                    \int_a^b f'(t)g(t)\,dt
+                    \]
+                </div>
+
+                <p>donde la evaluación en los extremos del intervalo se entiende como:</p>
+                <div class="formula-bloque">
+                    \[
+                    (fg)(t)\Big|_a^b
+                    =
+                    (fg)(b)-(fg)(a)
+                    =
+                    f(b)g(b)-f(a)g(a)
+                    \]
+                </div>
+
+                <h2>Demostración</h2>
+                <p>Como \(f\) y \(g\) son funciones diferenciables, por la regla del producto se tiene:</p>
+                <div class="formula-bloque">
+                    \[
+                    (fg)'=f'g+fg'
+                    \]
+                </div>
+
+                <p>Despejando el producto que contiene \(g'\), resulta:</p>
+                <div class="formula-bloque">
+                    \[
+                    fg'=(fg)'-f'g
+                    \]
+                </div>
+
+                <p>Al integrar ambos lados en el intervalo \([a,b]\), se obtiene:</p>
+                <div class="formula-bloque">
+                    \[
+                    \int_a^b f(t)g'(t)\,dt
+                    =
+                    \int_a^b (fg)'(t)\,dt
+                    -
+                    \int_a^b f'(t)g(t)\,dt
+                    \]
+                </div>
+
+                <p>Por el teorema fundamental del cálculo:</p>
+                <div class="formula-bloque">
+                    \[
+                    \int_a^b (fg)'(t)\,dt=(fg)(b)-(fg)(a)
+                    \]
+                </div>
+
+                <p>Por lo tanto, queda justificada la fórmula:</p>
+                <div class="resultado-final">
+                    \[
+                    \int_a^b f(t)g'(t)\,dt
+                    =
+                    (fg)(t)\Big|_a^b
+                    -
+                    \int_a^b f'(t)g(t)\,dt
+                    \]
+                </div>
+
+
+                <h2>Ejemplo aplicado</h2>
+                <p>Calculemos la integral definida \(\int_0^1 t e^t\,dt\) usando directamente el teorema anterior.</p>
+
+                <div class="formula-bloque">
+                    \[
+                    f(t)=t,\qquad g'(t)=e^t
+                    \]
+                    \[
+                    f'(t)=1,\qquad g(t)=e^t
+                    \]
+                </div>
+
+                <p>Aplicando el teorema:</p>
+                <div class="formula-bloque">
+                    \[
+                    \int_0^1 t e^t\,dt
+                    =
+                    t e^t\Big|_0^1
+                    -
+                    \int_0^1 e^t\,dt
+                    \]
+                </div>
+
+                <p>Evaluamos el producto en los límites y resolvemos la integral restante:</p>
+                <div class="formula-bloque">
+                    \[
+                    t e^t\Big|_0^1=1\cdot e^1-0\cdot e^0=e
+                    \]
+                    \[
+                    \int_0^1 e^t\,dt=e^t\Big|_0^1=e-1
+                    \]
+                </div>
+
+                <p>Por lo tanto:</p>
+                <div class="resultado-final">
+                    \[
+                    \int_0^1 t e^t\,dt=e-(e-1)=1
+                    \]
+                </div>
+
+                <div class="enlace-teoria referencia-formal">
+                    <b>Referencia principal del proyecto:</b><br>
+                    <a href="glosario.pdf" target="_blank" rel="noopener noreferrer">Abrir glosario.pdf</a>
+                </div>
+                <div class="botones"><a class="boton" href="metodos-integracion.html">Volver a métodos de integración</a></div>
+            </div>
+        </section>
+    </main>
+    <div class="lateral"></div>
+</div>
+</body>
+</html>

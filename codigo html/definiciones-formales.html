@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Definiciones formales</title>
+    <link rel="stylesheet" href="estilos-calculadora.css">
+    <script>window.MathJax = {tex: {inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']]}, svg: {fontCache: 'global'}};</script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" id="MathJax-script" async></script>
+</head>
+<body>
+<div class="header-negro">Cálculo</div>
+<div class="pantalla-dividida">
+    <div class="lateral"></div>
+    <main class="centro-blanco pagina-teoria">
+        <a href="apoyos.html" class="btn-volver">← Volver a Apoyos</a>
+
+        <section class="panel">
+            <div class="panel-titulo">DEFINICIONES FORMALES</div>
+            <div class="panel-cuerpo">
+                <p class="ayuda">Esta página reúne las ideas formales que se usan cuando una integral definida se interpreta mediante límites o cuando el intervalo presenta infinito o discontinuidades.</p>
+
+                <h2>1. Integral definida mediante límites</h2>
+                <p>Si una función \(f\) es continua en \([a,b]\), la integral definida puede entenderse como el límite de sumas de áreas cada vez más finas. Se parte de una partición \(P\) del intervalo y se toma una selección \(A=\{s_1,s_2,\dots,s_n\}\), donde cada \(s_i\) pertenece al subintervalo correspondiente.</p>
+                <div class="formula-bloque">
+                    \[
+                    \int_a^b f(x)\,dx=\lim_{\|P\|\to 0}\sum_{i=1}^{n} f(s_i)(t_i-t_{i-1})
+                    \]
+                </div>
+                <p>Aquí \(P=\{t_0,t_1,\dots,t_n\}\) es la partición y \(t_i-t_{i-1}\) es la anchura del subintervalo. La expresión dice que, cuando los subintervalos se hacen muy pequeños, la suma de rectángulos se acerca al valor exacto de la integral.</p>
+
+                <h2>2. Integrales impropias con intervalo infinito</h2>
+                <p>Una integral tiene intervalo infinito cuando uno de sus límites es \(\infty\) o \(-\infty\). En estos casos no se sustituye infinito como si fuera un número: se usa un límite.</p>
+                <div class="formula-bloque">
+                    \[
+                    \int_a^{\infty} f(x)\,dx=\lim_{t\to\infty}\int_a^t f(x)\,dx
+                    \]
+                    \[
+                    \int_{-\infty}^{b} f(x)\,dx=\lim_{t\to-\infty}\int_t^b f(x)\,dx
+                    \]
+                </div>
+                <p>Si el intervalo es \(( -\infty,\infty )\), se separa en dos integrales. Ambas partes deben converger para que la integral completa exista.</p>
+                <div class="formula-bloque">
+                    \[
+                    \int_{-\infty}^{\infty} f(x)\,dx=
+                    \int_{-\infty}^{c} f(x)\,dx+
+                    \int_c^{\infty} f(x)\,dx
+                    \]
+                </div>
+
+                <h2>3. Integrales impropias con discontinuidades</h2>
+                <p>Una integral también puede ser impropia si la función no está definida o se vuelve infinita dentro del intervalo de integración. Si la discontinuidad está en un extremo, se acerca el límite desde dentro del intervalo.</p>
+                <div class="formula-bloque">
+                    \[
+                    \int_a^b f(x)\,dx=\lim_{t\to a^+}\int_t^b f(x)\,dx
+                    \]
+                    \[
+                    \int_a^b f(x)\,dx=\lim_{t\to b^-}\int_a^t f(x)\,dx
+                    \]
+                </div>
+                <p>Si la discontinuidad está en un punto interior \(c\), se separa la integral en dos partes.</p>
+                <div class="formula-bloque">
+                    \[
+                    \int_a^b f(x)\,dx=
+                    \int_a^c f(x)\,dx+
+                    \int_c^b f(x)\,dx
+                    \]
+                </div>
+                <p>En ese caso, cada parte se calcula con su propio límite. Si una de las dos partes falla, la integral completa diverge.</p>
+
+                <h2>4. Convergencia</h2>
+                <p>Una integral impropia converge cuando el límite que la define existe y da un número real finito.</p>
+                <div class="formula-bloque">
+                    \[
+                    \int_1^{\infty}\frac{1}{x^2}\,dx
+                    =\lim_{t\to\infty}\int_1^t x^{-2}\,dx
+                    =\lim_{t\to\infty}\left(1-\frac{1}{t}\right)=1
+                    \]
+                </div>
+                <p>Como el límite vale \(1\), la integral converge.</p>
+
+                <h2>5. Divergencia</h2>
+                <p>Una integral impropia diverge cuando el límite no existe, crece sin límite o no produce un número real finito.</p>
+                <div class="formula-bloque">
+                    \[
+                    \int_1^{\infty}\frac{1}{x}\,dx
+                    =\lim_{t\to\infty}\int_1^t \frac{1}{x}\,dx
+                    =\lim_{t\to\infty}\log(t)=\infty
+                    \]
+                </div>
+                <p>Como el resultado se va a infinito, la integral diverge.</p>
+
+                <h2>6. Cuándo existe una integral impropia</h2>
+                <p>Una integral impropia existe si todas las partes necesarias convergen. Esto es muy importante cuando hay más de un problema: por ejemplo, intervalo infinito y una discontinuidad, o una discontinuidad dentro del intervalo.</p>
+                <ol class="lista-pasos-teoria">
+                    <li>Identificar si hay infinito en los límites o discontinuidades en el intervalo.</li>
+                    <li>Separar la integral en las partes necesarias.</li>
+                    <li>Convertir cada parte en un límite.</li>
+                    <li>Calcular cada límite.</li>
+                    <li>Concluir que la integral existe solo si todos los límites son finitos.</li>
+                </ol>
+
+                <h2>7. Cuándo no existe una integral impropia</h2>
+                <p>La integral no existe si al menos una parte diverge. No basta con que una parte tenga buen resultado; todas las partes deben ser convergentes.</p>
+                <div class="advertencia-calculo">
+                    Si una integral se separa en dos límites y uno de ellos diverge, entonces la integral impropia completa diverge.
+                </div>
+
+                <h2>Referencia principal</h2>
+                <p class="referencia-formal">
+                    <a href="glosario.pdf" target="_blank" rel="noopener noreferrer">Abrir glosario.pdf</a>
+                </p>
+
+                <a href="integral-definida.html" class="boton-enlace">Volver a integrales definidas</a>
+            </div>
+        </section>
+    </main>
+    <div class="lateral"></div>
+</div>
+</body>
+</html>

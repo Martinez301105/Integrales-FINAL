@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Integrales impropias</title>
+    <link rel="stylesheet" href="estilos-calculadora.css">
+    <script>window.MathJax = {tex: {inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']]}, svg: {fontCache: 'global'}};</script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" id="MathJax-script" async></script>
+</head>
+<body>
+<div class="header-negro">Cálculo</div>
+<div class="pantalla-dividida">
+    <div class="lateral"></div>
+    <main class="centro-blanco">
+        <a href="integral-definida.html" class="btn-volver">← Volver a integrales definidas</a>
+        <section class="panel">
+            <div class="panel-titulo">INTEGRALES IMPROPIAS</div>
+            <div class="panel-cuerpo">
+                <p class="ayuda">Una integral impropia se define usando límites. Aparece cuando el intervalo es infinito o cuando la función tiene una discontinuidad/punto problemático dentro del intervalo.</p>
+
+                <div class="resultado resultado-symbolab">
+                    <h3>Definición formal</h3>
+                    <div class="regla-aplicada">
+                        <div class="regla-etiqueta">Intervalo infinito</div>
+                        <div class="paso-latex">\[\int_a^{\infty} f(x)\,dx:=\lim_{t\to\infty}\int_a^t f(x)\,dx\]</div>
+                        <div class="paso-latex">\[\int_{-\infty}^{b} f(x)\,dx:=\lim_{t\to-\infty}\int_t^b f(x)\,dx\]</div>
+                    </div>
+                    <div class="regla-aplicada">
+                        <div class="regla-etiqueta">Discontinuidad o punto problemático</div>
+                        <div class="paso-latex">\[\int_a^b f(x)\,dx:=\lim_{t\to c^-}\int_a^t f(x)\,dx+\lim_{t\to c^+}\int_t^b f(x)\,dx\]</div>
+                    </div>
+                    <div class="pasos-seccion">
+                        <h4>Interpretación</h4>
+                        <div class="paso-card"><button type="button" class="paso-toggle" onclick="this.parentElement.classList.toggle('cerrado')"><span>Paso 1</span><span>Mostrar/Ocultar</span></button><p class="paso-explicacion">Reemplaza el infinito o el punto problemático por una variable temporal.</p><div class="paso-latex">\[\int_a^{\infty}f(x)\,dx\to\int_a^t f(x)\,dx\]</div></div>
+                        <div class="paso-card"><button type="button" class="paso-toggle" onclick="this.parentElement.classList.toggle('cerrado')"><span>Paso 2</span><span>Mostrar/Ocultar</span></button><p class="paso-explicacion">Calcula la integral definida normal con esa variable.</p><div class="paso-latex">\[F(t)-F(a)\]</div></div>
+                        <div class="paso-card"><button type="button" class="paso-toggle" onclick="this.parentElement.classList.toggle('cerrado')"><span>Paso 3</span><span>Mostrar/Ocultar</span></button><p class="paso-explicacion">Toma el límite. Si existe y es finito, converge. Si no existe o crece sin límite, diverge.</p><div class="paso-latex">\[\lim_{t\to\infty}(F(t)-F(a))\]</div></div>
+                    </div>
+                </div>
+
+                <div class="enlace-teoria"><b>Referencia principal del proyecto:</b><br><a href="glosario.pdf" target="_blank" rel="noopener noreferrer">Abrir glosario.pdf</a></div>
+            </div>
+        </section>
+    </main>
+    <div class="lateral"></div>
+</div>
+</body>
+</html>

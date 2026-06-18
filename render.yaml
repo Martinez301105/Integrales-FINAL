@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: integrales-mac-api
+    runtime: python
+    rootDir: backend-python/CalculadoraDeIntegrales
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /api/salud
+    envVars:
+      - key: FRONTEND_ORIGINS
+        value: "*"

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculadora de integrales MAC </title>
+
+<style>
+
+body{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin:0;
+    padding:0;
+    background:#f4f4f4;
+    min-height:100vh;
+}
+
+/* ENCABEZADO */
+.header-negro{
+    background:#1a1a1a;
+    color:white;
+    text-align:center;
+    padding:25px;
+    font-size:3rem;
+    font-weight:bold;
+    box-shadow:0 4px 10px rgba(0,0,0,.3);
+}
+
+/* CONTENEDOR GENERAL */
+.pantalla-dividida{
+    display:flex;
+    min-height:calc(100vh - 100px);
+}
+
+/* BARRAS LATERALES */
+.lateral{
+    width:15%;
+    background-image:url('fondo-mates.jpg');
+    background-size:cover;
+    background-position:center;
+}
+
+/* ÁREA CENTRAL */
+.centro-blanco{
+    width:70%;
+    background:white;
+    position:relative;
+    padding:40px;
+    box-sizing:border-box;
+}
+
+/* LOGO DEL GATITO */
+.contenedor-gato{
+    position:absolute;
+    top:-20px;
+    left:20px;
+    width:170px;
+    height:170px;
+    border-radius:50%;
+    overflow:hidden;
+    border:5px solid white;
+    box-shadow:0 4px 12px rgba(0,0,0,.3);
+    background:white;
+}
+
+.contenedor-gato img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+/* CONTENIDO */
+.contenido{
+    margin-top:70px;
+    display:flex;
+    justify-content:space-between;
+    gap:40px;
+}
+
+/* TEXTO */
+.descripcion{
+    flex:1;
+}
+
+.descripcion h2 {
+    color: #111;
+    margin-top: 60px;
+    margin-bottom: 15px;
+}
+
+.descripcion h2{
+    color:#111;
+    margin-bottom:15px;
+}
+
+.descripcion p{
+    font-size:1.2rem;
+    line-height:1.8;
+    color:#222;
+}
+
+/* MENÚ */
+.menu{
+    width:300px;
+    border:2px solid #cbd5e1;
+    padding:20px;
+    background:#fafafa;
+}
+
+.menu ul{
+    list-style:none;
+    margin:0;
+    padding:0;
+}
+
+.menu li{
+    margin:15px 0;
+}
+
+.menu a{
+    text-decoration:none;
+    color:#111827;
+    font-size:1.2rem;
+    transition:.2s;
+}
+
+.menu a:hover{
+    color:#000000;
+    padding-left:5px;
+}
+
+.diccionario{
+    text-align:center;
+    margin-top:25px;
+    font-weight:bold;
+    color:#111827;
+}
+
+/* LOGO */
+.footer-logo{
+    position:absolute;
+    bottom:20px;
+    right:20px;
+}
+
+.footer-logo img{
+    height:70px;
+}
+
+</style>
+<link rel="stylesheet" href="estilos-calculadora.css">
+</head>
+
+<body>
+
+<div class="header-negro">
+    Calculadora De Integrales
+</div>
+
+<div class="pantalla-dividida">
+
+    <div class="lateral"></div>
+
+    <div class="centro-blanco">
+
+        <div class="contenedor-gato">
+            <img src="gato.png" alt="Gatito">
+        </div>
+
+        <div class="contenido">
+            
+<div class="descripcion">
+
+    <h2>INTRODUCCIÓN</h2>
+
+    <p>
+        ¡Bienvenidos! La página queda organizada por secciones principales: calculadoras automáticas,
+        una sección física de cinemática, ejemplos visuales, apoyos de consulta y el glosario general del proyecto.
+        Selecciona una opción del menú para comenzar.
+    </p>
+
+    <div class="contenedor-3b1b contenedor-integral-interactiva">
+        <div class="lienzo-contenedor">
+            <canvas id="lienzoCalculo" width="700" height="350"></canvas>
+        </div>
+
+        <div class="controles-3b1b controles-integral-interactiva">
+            <label class="contador-rectangulos" for="sliderRectangulos">Rectángulos: <span id="txt-n">52</span></label>
+            <input type="range" id="sliderRectangulos" min="4" max="100" value="52" step="1" aria-label="Cambiar cantidad de rectángulos de la integral interactiva">
+        </div>
+
+        <p class="texto-integral-interactiva">
+            La integral definida representa el área acumulada entre una función y el eje X dentro de un intervalo [a,b]. La animación muestra cómo esa área puede aproximarse usando rectángulos: mientras más rectángulos se usan, más precisa es la aproximación.
+        </p>
+    </div>
+
+</div>
+
+            <div class="menu">
+
+                <ul>
+                    <li><a href="integral-indefinida.html">Integral indefinida</a></li>
+                    <li><a href="integral-definida.html">Integral definida</a></li>
+                    <li><a href="cinematica.html">Cinemática</a></li>
+                    <li><a href="ejemplos.html">Ejemplos de cálculo</a></li>
+                    <li><a href="apoyos.html">Apoyos</a></li>
+                    <li><a href="diccionario.html">Glosario</a></li>
+                </ul>
+
+            </div>
+
+        </div>
+
+        <div class="footer-logo">
+            <img src="logo-mac.png" alt="Logo MAC">
+        </div>
+
+    </div>
+
+    <div class="lateral"></div>
+
+</div>
+
+<script src="config.js"></script>
+<script src="calculadora.js"></script>
+</body>
+</html>

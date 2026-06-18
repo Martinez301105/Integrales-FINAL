@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Método del trapecio</title>
+    <link rel="stylesheet" href="estilos-calculadora.css">
+    <script>window.MathJax = {tex: {inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']]}, svg: {fontCache: 'global'}};</script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" id="MathJax-script" async></script>
+</head>
+<body>
+<div class="header-negro">Cálculo</div>
+<div class="pantalla-dividida">
+    <div class="lateral"></div>
+    <main class="centro-blanco">
+        <a href="apoyos.html" class="btn-volver">← Volver a Apoyos</a>
+        <section class="panel pagina-teoria">
+            <div class="panel-titulo">MÉTODO DEL TRAPECIO</div>
+            <div class="panel-cuerpo">
+                <p class="ayuda">El método del trapecio es una técnica de integración numérica. Sirve para aproximar el valor de una integral definida cuando no se quiere o no se puede obtener una antiderivada exacta fácilmente.</p>
+
+                <h2>Definición</h2>
+                <p><b>Definición 2.11: Método del trapecio.</b> Sea \(f:[a,b]\to\mathbb{R}\) una función continua. El método del trapecio es un método de integración numérica que aproxima la integral definida</p>
+
+                <div class="formula-bloque">
+                    \[
+                    \int_a^b f(x)\,dx
+                    \]
+                </div>
+
+                <p>mediante el área del trapecio determinado por los puntos \((a,f(a))\) y \((b,f(b))\). La aproximación está dada por</p>
+
+                <div class="formula-bloque">
+                    \[
+                    \int_a^b f(x)\,dx\approx \frac{b-a}{2}\left(f(a)+f(b)\right)
+                    \]
+                </div>
+
+                <p>Esta fórmula se obtiene al reemplazar la gráfica de \(f\) en \([a,b]\) por el segmento de recta que une los puntos \((a,f(a))\) y \((b,f(b))\).</p>
+                <p class="ayuda">Nota: cuando se usan varios subintervalos, la misma idea se aplica en cada parte del intervalo.</p>
+
+                <h2>Significado de cada símbolo</h2>
+                <div class="tabla-glosario-contenedor">
+                    <table>
+                        <thead><tr><th>Símbolo</th><th>Significado</th></tr></thead>
+                        <tbody>
+                            <tr><td>\(a\)</td><td>Límite inferior del intervalo de integración.</td></tr>
+                            <tr><td>\(b\)</td><td>Límite superior del intervalo de integración.</td></tr>
+                            <tr><td>\(f\)</td><td>Función continua en el intervalo \([a,b]\).</td></tr>
+                            <tr><td>\((a,f(a))\)</td><td>Punto izquierdo usado para formar el trapecio.</td></tr>
+                            <tr><td>\((b,f(b))\)</td><td>Punto derecho usado para formar el trapecio.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h2>¿Cuándo se usa?</h2>
+                <p>Se usa cuando se necesita una aproximación del área bajo una curva, especialmente si la integral exacta es difícil de resolver o si la función viene de datos numéricos.</p>
+                <div class="advertencia-calculo">Importante: el método del trapecio da una aproximación numérica. Al aumentar \(n\), normalmente la aproximación mejora.</div>
+
+                <h2>Ejemplo sencillo</h2>
+                <p>Sea \(f(x)=x^2\) en el intervalo \([0,2]\). Queremos aproximar \(\int_0^2 x^2\,dx\).</p>
+                <ol class="lista-pasos-teoria">
+                    <li>Usamos los extremos del intervalo: \(a=0\) y \(b=2\).</li>
+                    <li>Evaluamos: \(f(0)=0^2=0\) y \(f(2)=2^2=4\).</li>
+                    <li>Sustituimos en la fórmula del trapecio:</li>
+                </ol>
+                <div class="formula-bloque">
+                    \[
+                    \int_0^2 x^2\,dx\approx \frac{2-0}{2}\left[f(0)+f(2)\right]=\frac{2}{2}(0+4)=4
+                    \]
+                </div>
+                <p>Por lo tanto, con el método del trapecio la aproximación es \(4\).</p>
+
+                <div class="enlace-teoria referencia-formal">
+                    <b>Referencia principal del proyecto:</b><br>
+                    <a href="glosario.pdf#page=11" target="_blank" rel="noopener noreferrer">Abrir glosario.pdf</a>
+                </div>
+                <div class="botones"><a class="boton" href="integral-definida.html">Volver a integrales definidas</a></div>
+            </div>
+        </section>
+    </main>
+    <div class="lateral"></div>
+</div>
+</body>
+</html>

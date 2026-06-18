@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fracciones parciales</title>
+    <link rel="stylesheet" href="estilos-calculadora.css">
+    <script>window.MathJax = {tex: {inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']]}, svg: {fontCache: 'global'}};</script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" id="MathJax-script" async></script>
+</head>
+<body>
+<div class="header-negro">Cálculo</div>
+<div class="pantalla-dividida">
+    <div class="lateral"></div>
+    <main class="centro-blanco">
+        <a href="metodos-integracion.html" class="btn-volver">← Volver a métodos de integración</a>
+        <section class="panel pagina-teoria">
+            <div class="panel-titulo">FRACCIONES PARCIALES</div>
+            <div class="panel-cuerpo">
+                <p class="ayuda">Las fracciones parciales permiten descomponer una función racional en fracciones más simples para poder integrarla con mayor facilidad.</p>
+
+                <h2>¿Qué son?</h2>
+                <p>Son una forma de escribir una fracción algebraica complicada como suma de fracciones simples.</p>
+
+                <h2>Idea general</h2>
+                <div class="formula-bloque">
+                    \[
+                    \frac{P(x)}{Q(x)}=\frac{A}{x-a}+\frac{B}{x-b}+\cdots
+                    \]
+                </div>
+
+                <h2>¿Cuándo se usan?</h2>
+                <p>Se usan para integrar funciones racionales, es decir, cocientes de polinomios. Primero se factoriza el denominador. Si el grado del numerador es mayor o igual al grado del denominador, antes se realiza división polinómica.</p>
+
+                <h2>Pasos ordenados</h2>
+                <ol class="lista-pasos-teoria">
+                    <li>Revisar los grados del numerador y del denominador.</li>
+                    <li>Dividir si el grado del numerador es mayor o igual al del denominador.</li>
+                    <li>Factorizar el denominador.</li>
+                    <li>Proponer la descomposición en fracciones simples.</li>
+                    <li>Encontrar las constantes.</li>
+                    <li>Integrar cada fracción simple.</li>
+                </ol>
+
+                <h2>Ejemplo sencillo</h2>
+                <p>Resolver:</p>
+                <div class="formula-bloque">\[\int \frac{3x+5}{(x-1)(x+2)}\,dx\]</div>
+                <p>Proponemos:</p>
+                <div class="formula-bloque">\[\frac{3x+5}{(x-1)(x+2)}=\frac{A}{x-1}+\frac{B}{x+2}\]</div>
+                <p>Multiplicamos por \((x-1)(x+2)\):</p>
+                <div class="formula-bloque">\[3x+5=A(x+2)+B(x-1)\]</div>
+                <p>Al resolver constantes se obtiene \(A=\frac{8}{3}\) y \(B=\frac{1}{3}\). Entonces:</p>
+                <div class="formula-bloque">
+                    \[
+                    \int \frac{3x+5}{(x-1)(x+2)}\,dx=\frac{8}{3}\log|x-1|+\frac{1}{3}\log|x+2|+C
+                    \]
+                </div>
+
+                <div class="enlace-teoria referencia-formal">
+                    <b>Referencia principal del proyecto:</b><br>
+                    <a href="glosario.pdf" target="_blank" rel="noopener noreferrer">Abrir glosario.pdf</a>
+                </div>
+                <div class="botones"><a class="boton" href="metodos-integracion.html">Volver a métodos de integración</a></div>
+            </div>
+        </section>
+    </main>
+    <div class="lateral"></div>
+</div>
+</body>
+</html>

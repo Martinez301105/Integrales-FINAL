@@ -1,0 +1,1185 @@
+body{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin:0;
+    padding:0;
+    background:#f4f4f4;
+    min-height:100vh;
+}
+.header-negro{
+    background:#1a1a1a;
+    color:white;
+    text-align:center;
+    padding:25px;
+    font-size:3rem;
+    font-weight:bold;
+    box-shadow:0 4px 10px rgba(0,0,0,.3);
+}
+.pantalla-dividida{
+    display:flex;
+    min-height:calc(100vh - 100px);
+}
+.lateral{
+    width:10%;
+    background-image:url('fondo-mates.jpg');
+    background-size:cover;
+    background-position:center;
+}
+.centro-blanco{
+    width:80%;
+    background:white;
+    padding:40px;
+    box-sizing:border-box;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+.btn-volver{
+    align-self:flex-start;
+    text-decoration:none;
+    color:#111827;
+    font-size:1.1rem;
+    font-weight:bold;
+    margin-bottom:20px;
+    transition:.2s;
+}
+.btn-volver:hover{ color:#000000; padding-left:5px; }
+.contenedor-tabla{
+    width:100%;
+    border:3px solid #111827;
+    border-radius:4px;
+    overflow:hidden;
+    box-shadow:0 4px 12px rgba(0,0,0,.1);
+    margin-bottom:24px;
+}
+.titulo-tabla{
+    background:#111827;
+    color:white;
+    text-align:center;
+    padding:12px;
+    font-size:1.6rem;
+    font-weight:bold;
+    letter-spacing:1px;
+}
+table{ width:100%; border-collapse:collapse; background:white; }
+th,td{ border:1px solid #cbd5e1; padding:12px 15px; font-size:1.05rem; line-height:1.5; vertical-align:middle; }
+th{ background:#f8fafc; color:#334155; text-align:center; font-weight:bold; }
+tr:nth-child(even){ background:#f8fafc; }
+.panel{
+    width:100%;
+    max-width:1050px;
+    border:3px solid #111827;
+    border-radius:4px;
+    overflow:hidden;
+    box-shadow:0 4px 12px rgba(0,0,0,.1);
+    background:white;
+    margin-bottom:24px;
+}
+.panel-titulo{
+    background:#111827;
+    color:white;
+    text-align:center;
+    padding:12px;
+    font-size:1.6rem;
+    font-weight:bold;
+    letter-spacing:1px;
+}
+.panel-cuerpo{ padding:22px; }
+.grid-form{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+    gap:15px;
+    align-items:end;
+}
+.campo label{ display:block; font-weight:bold; color:#334155; margin-bottom:7px; }
+.campo input,.campo select,.campo textarea{
+    width:100%;
+    box-sizing:border-box;
+    border:1px solid #cbd5e1;
+    border-radius:4px;
+    padding:10px 12px;
+    font-size:1rem;
+    background:#fff;
+}
+.campo textarea{ min-height:70px; resize:vertical; }
+.ayuda{
+    color:#475569;
+    background:#f8fafc;
+    border-left:4px solid #111827;
+    padding:10px 12px;
+    margin:12px 0 18px 0;
+    line-height:1.55;
+}
+.botones{ display:flex; gap:10px; flex-wrap:wrap; margin-top:16px; }
+button,.boton{
+    border:0;
+    background:#111827;
+    color:white;
+    padding:10px 16px;
+    font-size:1rem;
+    border-radius:4px;
+    cursor:pointer;
+    text-decoration:none;
+    font-weight:bold;
+    transition:.2s;
+}
+button:hover,.boton:hover{ background:#000000; }
+button.secundario{ background:#374151; }
+button.secundario:hover{ background:#111827; }
+.resultado{
+    margin-top:20px;
+    padding:18px;
+    border:1px solid #cbd5e1;
+    border-radius:4px;
+    background:#f8fafc;
+    overflow-x:auto;
+}
+.resultado h3{ margin-top:0; color:#111827; }
+.error{
+    margin-top:15px;
+    padding:12px;
+    border:1px solid #fecaca;
+    background:#fef2f2;
+    color:#991b1b;
+    border-radius:4px;
+    font-weight:bold;
+}
+.lista-terminos{
+    margin-top:12px;
+    padding:12px;
+    border:1px dashed #94a3b8;
+    border-radius:4px;
+    background:#f8fafc;
+}
+.menu-interno{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+    gap:12px;
+    margin-bottom:18px;
+}
+.menu-interno a,.menu-interno button{
+    display:block;
+    text-align:center;
+    background:#fafafa;
+    border:2px solid #cbd5e1;
+    color:#111827;
+    padding:12px;
+    border-radius:4px;
+    text-decoration:none;
+    font-weight:bold;
+}
+.menu-interno a:hover,.menu-interno button:hover{
+    color:#000000;
+    border-color:#111827;
+    background:#f8fafc;
+}
+.detalle-pasos li{ margin:10px 0; }
+.badge{
+    display:inline-block;
+    background:#e5e7eb;
+    color:#111827;
+    border-radius:999px;
+    padding:2px 8px;
+    font-size:.85rem;
+    font-weight:bold;
+}
+@media (max-width:850px){
+    .header-negro{font-size:2rem;}
+    .lateral{display:none;}
+    .centro-blanco{width:100%; padding:24px;}
+}
+
+
+.tabla-glosario-contenedor{ overflow-x:auto; }
+.tabla-glosario th:nth-child(1), .tabla-glosario td:nth-child(1){ width:55px; text-align:center; }
+.tabla-glosario th:nth-child(2), .tabla-glosario td:nth-child(2){ width:120px; text-align:center; }
+.tabla-glosario th:nth-child(3), .tabla-glosario td:nth-child(3){ width:190px; }
+.numero-glosario{ font-weight:bold; color:#334155; }
+
+/* ===== Capa visual tipo Symbolab para métodos de integración ===== */
+.buscador-symbolab{
+    background:linear-gradient(180deg,#ffffff,#f8fafc);
+    border:1px solid #dbe3ef;
+    border-radius:18px;
+    padding:18px;
+    box-shadow:0 12px 30px rgba(15,23,42,.08);
+}
+.campo-math{
+    background:#ffffff;
+    border:1px solid #e2e8f0;
+    border-radius:16px;
+    padding:14px;
+}
+.campo-math input{
+    border:2px solid #cbd5e1;
+    border-radius:999px;
+    padding:14px 18px;
+    font-size:1.08rem;
+    outline:none;
+}
+.campo-math input:focus{
+    border-color:#111827;
+    box-shadow:0 0 0 4px rgba(17,24,39,.08);
+}
+.preview-latex{
+    min-height:56px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin-top:12px;
+    background:#f8fafc;
+    border:1px dashed #cbd5e1;
+    border-radius:12px;
+    overflow-x:auto;
+}
+.teclado-math{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+    margin-top:12px;
+}
+.tecla-math{
+    background:#ffffff;
+    color:#111827;
+    border:1px solid #cbd5e1;
+    border-radius:999px;
+    padding:8px 12px;
+    box-shadow:0 2px 6px rgba(15,23,42,.05);
+}
+.tecla-math:hover{
+    background:#111827;
+    color:#ffffff;
+}
+.resultado-symbolab{
+    background:#ffffff;
+    border:1px solid #dbe3ef;
+    border-radius:18px;
+    box-shadow:0 14px 32px rgba(15,23,42,.08);
+}
+.resultado-symbolab .detalle-pasos{
+    list-style:none;
+    margin:0;
+    padding:0;
+}
+.paso-card{
+    border:1px solid #e2e8f0;
+    border-radius:14px;
+    margin:12px 0;
+    padding:0;
+    background:#f8fafc;
+    overflow:hidden;
+}
+.paso-toggle{
+    width:100%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    background:#111827;
+    color:white;
+    border-radius:0;
+    padding:12px 14px;
+}
+.paso-explicacion{
+    margin:12px 14px 0;
+    color:#475569;
+    line-height:1.5;
+}
+.paso-latex{
+    padding:12px 14px 16px;
+    overflow-x:auto;
+    font-size:1.05rem;
+}
+.paso-card.cerrado .paso-explicacion,
+.paso-card.cerrado .paso-latex{
+    display:none;
+}
+.resultado-final{
+    margin-top:16px;
+    padding:14px;
+    background:#f8fafc;
+    border:1px solid #cbd5e1;
+    border-radius:14px;
+    overflow-x:auto;
+}
+
+/* ===== Ajuste final: fondo anterior con mejoras visibles ===== */
+html{
+    background:#f4f4f4;
+}
+body{
+    background:#f4f4f4;
+    color:#111827;
+}
+.lateral{
+    background-image:url('fondo-mates.jpg');
+    background-size:cover;
+    background-position:center;
+}
+.centro-blanco{
+    background:white;
+    color:#111827;
+}
+.panel,.contenedor-tabla,.buscador-symbolab,.resultado-symbolab{
+    background:#ffffff;
+    color:#111827;
+}
+.panel-titulo,.titulo-tabla,.paso-toggle{
+    background:#111827;
+    color:white;
+}
+/* Tablas más limpias sin oscurecer toda la página */
+table{
+    width:100%;
+    border-collapse:separate;
+    border-spacing:0;
+    background:#ffffff;
+    color:#111827;
+}
+th,td{
+    border:1px solid #d0d7e2;
+    padding:14px 16px;
+    vertical-align:middle;
+}
+th{
+    background:#eef2f7;
+    color:#111827;
+    text-align:center;
+}
+tr:nth-child(even) td{
+    background:#f8fafc;
+}
+td.formula,.formula{
+    text-align:center;
+    font-weight:600;
+    background:#ffffff;
+}
+.tabla-glosario-contenedor,.contenedor-tabla{
+    overflow-x:auto;
+}
+/* Definición de Darboux: mismas palabras, mejor acomodo */
+.definicion-darboux{
+    max-width:900px;
+    margin:0 auto 22px auto;
+    text-align:center;
+    font-size:1.06rem;
+    line-height:1.8;
+    padding:20px 24px;
+    border-radius:16px;
+}
+.definicion-darboux .formula-darboux{
+    display:block;
+    margin:12px auto;
+    font-size:1.1rem;
+}
+/* Glosario reducido a acceso al PDF, pero con fondo claro */
+.glosario-pdf-card{
+    max-width:720px;
+    margin:22px auto;
+    text-align:center;
+    padding:34px 28px;
+    background:#ffffff;
+    border:1px solid #dbe3ef;
+    border-radius:24px;
+    box-shadow:0 14px 32px rgba(15,23,42,.08);
+}
+.glosario-pdf-card p{
+    color:#475569;
+    line-height:1.7;
+}
+.boton-pdf{
+    display:inline-block;
+    margin-top:14px;
+    background:#111827;
+    color:#ffffff !important;
+    border-radius:999px;
+    padding:14px 22px;
+    text-decoration:none;
+    font-weight:800;
+}
+.boton-pdf:hover{
+    background:#000000;
+    color:#ffffff !important;
+}
+@media (max-width:850px){
+    .centro-blanco{ padding:22px; }
+    th,td{ padding:11px 12px; font-size:.96rem; }
+    .definicion-darboux{ text-align:left; }
+}
+
+
+.enlace-teoria{
+    margin-top: 12px;
+    padding: 12px;
+    border: 1px solid #d7d7d7;
+    border-radius: 10px;
+    background: #fafafa;
+}
+.enlace-teoria a{ font-weight: 700; }
+.advertencia-calculo{
+    margin-top: 12px;
+    padding: 10px 12px;
+    border-left: 5px solid #777;
+    background: #f6f6f6;
+    border-radius: 8px;
+}
+
+
+.regla-aplicada{
+    margin:14px 0 18px;
+    padding:16px;
+    border:1px solid #cbd5e1;
+    border-radius:14px;
+    background:#eef2ff;
+}
+.regla-etiqueta{
+    font-weight:800;
+    color:#1e3a8a;
+    margin-bottom:8px;
+}
+.pasos-seccion h4{
+    margin:8px 0 12px;
+    color:#0f172a;
+}
+.grafica-panel{
+    margin-top:18px;
+    padding:16px;
+    background:#ffffff;
+    border:1px solid #dbe3ef;
+    border-radius:16px;
+    box-shadow:0 8px 20px rgba(15,23,42,.05);
+}
+.grafica-panel h4{
+    margin:0 0 12px;
+    color:#111827;
+}
+.grafica-panel canvas{
+    width:100%;
+    height:auto;
+    display:block;
+    background:#fff;
+    border-radius:12px;
+}
+.tarjeta-enlace-formal{
+    padding:18px;
+    border:1px solid #dbe3ef;
+    border-radius:16px;
+    background:#fff;
+}
+.tarjeta-enlace-formal h3{ margin-top:0; }
+.boton-enlace{
+    display:inline-block;
+    margin-top:10px;
+    padding:12px 18px;
+    border-radius:999px;
+    background:#111827;
+    color:#fff !important;
+    text-decoration:none;
+    font-weight:700;
+}
+.boton-enlace:hover{ background:#000; }
+
+
+/* =========================================================
+   AJUSTE FINAL: LEGIBILIDAD GENERAL Y RESPONSIVE
+   ========================================================= */
+*,*::before,*::after{box-sizing:border-box;}
+html{font-size:16px;}
+body{color:#0f172a;line-height:1.65;overflow-x:hidden;}
+.centro-blanco{max-width:1200px;margin:0 auto;align-items:stretch;}
+.panel,.contenedor-tabla,.resultado,.resultado-symbolab,.buscador-symbolab,.glosario-pdf-card,.tarjeta-enlace-formal{max-width:100%;}
+.panel-cuerpo{padding:clamp(16px,3vw,28px);}
+.panel-titulo,.titulo-tabla{line-height:1.25;word-break:normal;}
+.ayuda,.descripcion p,.paso-explicacion,.enlace-teoria,.advertencia-calculo,.resultado-final{line-height:1.75;overflow-wrap:anywhere;}
+.grid-form{grid-template-columns:repeat(auto-fit,minmax(min(240px,100%),1fr));gap:18px;}
+.campo{min-width:0;}
+.campo input,.campo select,.campo textarea{min-height:44px;line-height:1.35;}
+.botones{align-items:center;gap:12px;}
+.botones button,.botones .boton,button,.boton{min-height:42px;line-height:1.25;white-space:normal;}
+.regla-aplicada{margin:18px 0 22px;padding:18px;border:1px solid #bfdbfe;border-left:6px solid #2563eb;border-radius:16px;background:#eff6ff;overflow-x:auto;}
+.regla-etiqueta{display:block;margin-bottom:10px;font-size:1rem;font-weight:900;color:#1e3a8a;}
+.pasos-seccion{margin-top:18px;}
+.pasos-seccion h4{margin:0 0 14px;font-size:1.1rem;color:#111827;}
+.paso-card{display:block;width:100%;margin:16px 0;padding:0;border:1px solid #dbe3ef;border-radius:16px;background:#ffffff;overflow:hidden;box-shadow:0 6px 18px rgba(15,23,42,.06);}
+.paso-toggle{width:100%;min-height:54px;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 16px;border-radius:0;background:#111827;color:#ffffff;text-align:left;line-height:1.35;}
+.paso-toggle span:first-child{flex:1 1 auto;min-width:0;font-size:1rem;font-weight:800;overflow-wrap:anywhere;}
+.paso-toggle span:last-child{flex:0 0 auto;font-size:.9rem;font-weight:700;opacity:.95;white-space:nowrap;}
+.paso-explicacion{margin:14px 16px 0;color:#334155;font-size:1rem;}
+.paso-latex,.preview-latex,.resultado-final,.regla-aplicada .paso-latex,mjx-container{max-width:100%;overflow-x:auto;overflow-y:hidden;}
+.paso-latex{margin:10px 16px 16px;padding:14px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:12px;font-size:1.08rem;line-height:1.8;}
+.preview-latex{padding:12px;line-height:1.8;}
+.resultado-final{margin-top:18px;padding:16px;border:1px solid #bbf7d0;border-left:6px solid #16a34a;border-radius:16px;background:#f0fdf4;color:#14532d;font-size:1.05rem;}
+.tabla-glosario-contenedor,.contenedor-tabla{overflow-x:auto;-webkit-overflow-scrolling:touch;max-width:100%;}
+table{min-width:640px;max-width:100%;}
+th,td{padding:12px 14px;line-height:1.5;overflow-wrap:break-word;}
+th{font-weight:800;}
+.grafica-panel{width:100%;max-width:100%;margin-top:20px;padding:16px;border:1px solid #1e293b;border-radius:16px;background:#0f172a;overflow:hidden;}
+.grafica-panel h4{margin:0 0 12px;font-size:1.05rem;color:#e5e7eb;line-height:1.35;}
+.grafica-panel canvas{width:100%;max-width:100%;height:auto;display:block;border:1px solid #334155;border-radius:12px;}
+.enlace-teoria,.advertencia-calculo{margin:14px 0;padding:14px 16px;}
+.enlace-teoria a{overflow-wrap:anywhere;}
+.advertencia-calculo{border-left:6px solid #f59e0b;background:#fffbeb;color:#78350f;}
+mjx-container[display="true"]{display:block;padding:6px 0;}
+@media (max-width:850px){.pantalla-dividida{display:block;}.lateral{display:none;}.centro-blanco{width:100%;max-width:100%;padding:18px;}.header-negro{font-size:clamp(1.7rem,7vw,2.4rem);padding:18px 12px;line-height:1.2;}.panel-cuerpo{padding:16px;}.grid-form{grid-template-columns:1fr;}.botones{flex-direction:column;align-items:stretch;}.botones button,.botones .boton,button,.boton{width:100%;}.paso-toggle{align-items:flex-start;flex-direction:column;gap:6px;}.paso-toggle span:last-child{white-space:normal;font-size:.85rem;}.paso-latex{margin:10px 12px 14px;padding:12px;font-size:1rem;}table{min-width:560px;}th,td{padding:10px 12px;font-size:.95rem;}}
+@media (max-width:480px){.centro-blanco{padding:12px;}.panel{border-width:2px;}.panel-titulo{font-size:1.25rem;padding:10px;}.resultado,.resultado-symbolab{padding:12px;}.paso-toggle{padding:12px;}.regla-aplicada,.grafica-panel,.resultado-final{padding:12px;}}
+
+
+/* ===== Páginas teóricas nuevas ===== */
+.pagina-teoria h2{
+    margin-top:26px;
+    margin-bottom:10px;
+    color:#111827;
+    line-height:1.25;
+}
+.pagina-teoria p{
+    line-height:1.8;
+    color:#334155;
+}
+.formula-bloque{
+    max-width:100%;
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+    margin:16px 0;
+    padding:16px;
+    border:1px solid #dbe3ef;
+    border-left:6px solid #2563eb;
+    border-radius:14px;
+    background:#f8fafc;
+}
+.lista-pasos-teoria{
+    margin:12px 0 18px 20px;
+    padding-left:18px;
+    line-height:1.8;
+    color:#334155;
+}
+.lista-pasos-teoria li{
+    margin:8px 0;
+}
+.referencia-formal{
+    overflow-wrap:anywhere;
+}
+.grafica-panel canvas{
+    min-height:260px;
+}
+@media (max-width:850px){
+    .formula-bloque{padding:12px;}
+    .pagina-teoria h2{font-size:1.25rem;}
+}
+
+
+/* ===== Ajustes de enlaces formales ===== */
+.seccion-definiciones-formales{
+    margin-top:28px;
+}
+.seccion-definiciones-formales h3{
+    margin:0 0 14px;
+    color:#111827;
+    font-size:1.25rem;
+}
+.lista-enlaces-formales{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+    align-items:center;
+}
+.bloque-definiciones-metodos{
+    margin-top:28px;
+    padding-top:20px;
+    border-top:1px solid #dbe3ef;
+}
+@media (max-width:850px){
+    .lista-enlaces-formales{
+        flex-direction:column;
+        align-items:stretch;
+    }
+    .lista-enlaces-formales .boton-enlace{
+        width:100%;
+        text-align:center;
+    }
+}
+
+
+
+
+/* ===== Cinemática con gráficas ===== */
+.cinematica-graficas{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(min(460px,100%),1fr));
+    gap:22px;
+    margin-top:22px;
+    align-items:start;
+}
+.chart-wrap{
+    position:relative;
+    width:100%;
+    min-height:430px;
+    overflow:hidden;
+    border-radius:14px;
+    background:#ffffff;
+}
+.chart-wrap canvas{
+    width:100%;
+    height:auto;
+    min-height:410px;
+}
+.explicacion-cinematica{
+    margin-top:16px;
+    padding:15px 17px;
+    border-left:6px solid #2563eb;
+    border-radius:14px;
+    background:#eff6ff;
+    color:#1e3a8a;
+    font-weight:700;
+    line-height:1.7;
+    overflow-wrap:break-word;
+}
+.resumen-cinematica{
+    margin-top:18px;
+    padding:18px;
+    border:1px solid #dbe3ef;
+    border-left:6px solid #2563eb;
+    border-radius:16px;
+    background:#f8fafc;
+    overflow-x:auto;
+}
+.resumen-cinematica h4{
+    margin:0 0 12px;
+    color:#111827;
+}
+.resumen-cinematica table{
+    min-width:520px;
+    width:100%;
+    border-collapse:separate;
+    border-spacing:0;
+}
+.resumen-cinematica th{
+    width:38%;
+    text-align:left;
+    background:#e5e7eb;
+    color:#111827;
+    font-weight:800;
+}
+.resumen-cinematica td{
+    background:#ffffff;
+    color:#334155;
+}
+@media (max-width:850px){
+    .cinematica-graficas{grid-template-columns:1fr;}
+    .chart-wrap{min-height:390px;}
+    .chart-wrap canvas{min-height:380px;}
+}
+@media (max-width:480px){
+    .chart-wrap{min-height:360px;}
+    .chart-wrap canvas{min-height:350px;}
+    .resumen-cinematica table{min-width:460px;}
+}
+
+
+/* ===== Gráfica inicial restaurada ===== */
+.contenedor-3b1b {
+    background: #111827;
+    color: #f3f4f6;
+    border-radius: 14px;
+    padding: 24px;
+    margin-top: 35px;
+    border: 1px solid #374151;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+    max-width: 900px;
+}
+
+.encabezado-modulo h3 {
+    color: #60a5fa;
+    margin-top: 0;
+    margin-bottom: 18px;
+    font-size: 1.6rem;
+    font-weight: 800;
+}
+
+.encabezado-modulo p {
+    color: #cbd5e1;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin-bottom: 22px;
+}
+
+.lienzo-contenedor {
+    background: #030712;
+    border-radius: 10px;
+    border: 1px solid #1f2937;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 14px;
+    overflow: hidden;
+}
+
+#lienzoCalculo {
+    width: 100%;
+    max-width: 700px;
+    height: auto;
+    display: block;
+}
+
+.controles-3b1b {
+    margin-top: 22px;
+}
+
+.control-grupo {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.control-grupo label {
+    font-size: 1rem;
+    color: #e5e7eb;
+    font-weight: 700;
+}
+
+#sliderRectangulos {
+    width: 100%;
+    accent-color: #3b82f6;
+    cursor: pointer;
+}
+
+.contador-rectangulos {
+    display: block;
+    margin-bottom: 10px;
+    color: #e5e7eb;
+    font-weight: 800;
+    font-size: 0.98rem;
+    text-align: center;
+}
+
+.texto-integral-interactiva {
+    margin: 18px 0 0;
+    color: #e5e7eb;
+    background: rgba(15, 23, 42, 0.72);
+    border: 1px solid rgba(148, 163, 184, 0.30);
+    border-radius: 12px;
+    padding: 14px 16px;
+    font-size: 0.98rem;
+    line-height: 1.65;
+}
+
+.nota-matematica {
+    font-size: 1.05rem;
+    color: #f8fafc;
+    text-align: center;
+    margin-top: 24px;
+    margin-bottom: 0;
+    font-style: italic;
+    font-weight: 700;
+    background: #1e3a8a;
+    padding: 14px;
+    border-radius: 8px;
+    line-height: 1.6;
+}
+
+.descripcion .contenedor-3b1b {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* ===== Ajustes de enlaces formales e integral interactiva ===== */
+.contenedor-integral-interactiva .controles-3b1b{
+    margin-top:16px;
+}
+.controles-integral-interactiva{
+    display:flex;
+    justify-content:center;
+}
+.controles-integral-interactiva input[type="range"]{
+    max-width:520px;
+}
+.seccion-definiciones-formales{
+    margin-top:28px;
+}
+.seccion-definiciones-formales h3{
+    margin:0 0 14px;
+    color:#111827;
+    font-size:1.25rem;
+}
+.lista-enlaces-formales{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+    align-items:center;
+}
+.bloque-definiciones-metodos{
+    margin-top:28px;
+    padding-top:20px;
+    border-top:1px solid #dbe3ef;
+}
+@media (max-width:850px){
+    .lista-enlaces-formales{
+        flex-direction:column;
+        align-items:stretch;
+    }
+    .lista-enlaces-formales .boton-enlace{
+        width:100%;
+        text-align:center;
+    }
+}
+
+
+/* ===== Corrección de contraste en la animación inicial ===== */
+.descripcion .texto-integral-interactiva,
+.texto-integral-interactiva {
+    color: #f8fafc !important;
+    background: rgba(15, 23, 42, 0.92) !important;
+    border-color: rgba(148, 163, 184, 0.55) !important;
+    text-shadow: none;
+}
+.descripcion .contenedor-integral-interactiva,
+.contenedor-integral-interactiva {
+    color: #f8fafc;
+}
+.controles-integral-interactiva,
+.controles-integral-interactiva label,
+.contador-rectangulos {
+    color: #f8fafc !important;
+}
+
+.aviso-digitos{
+    display:none;
+    margin-top:8px;
+    padding:8px 10px;
+    border-left:4px solid #f59e0b;
+    background:#fffbeb;
+    color:#78350f;
+    border-radius:8px;
+    font-size:.92rem;
+    line-height:1.45;
+}
+.campo-exceso-digitos{
+    border-color:#f59e0b !important;
+    outline-color:#f59e0b !important;
+}
+
+
+/* ===== V7: cinemática informativa y ejemplos visuales ===== */
+.apoyo-cinematica-texto{
+    background:#f8fafc;
+    border:1px solid #dbe3ef;
+    border-left:6px solid #111827;
+    border-radius:14px;
+    padding:18px 20px;
+    margin:18px 0 24px;
+    color:#111827;
+}
+.apoyo-cinematica-texto h2{
+    margin-top:0;
+    color:#111827;
+}
+.apoyo-cinematica-texto p{
+    margin:8px 0;
+    line-height:1.65;
+}
+.ejemplos-grid,
+.metodos-visuales{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+    gap:18px;
+    margin:18px 0 32px;
+}
+.ejemplo-card,
+.metodo-card{
+    background:#ffffff;
+    border:1px solid #dbe3ef;
+    border-radius:16px;
+    padding:18px;
+    box-shadow:0 8px 22px rgba(15,23,42,.08);
+}
+.ejemplo-card h3,
+.metodo-card h3{
+    margin:10px 0 8px;
+    color:#111827;
+}
+.ejemplo-card code,
+.metodo-card code{
+    display:block;
+    background:#111827;
+    color:#f8fafc;
+    border-radius:10px;
+    padding:10px 12px;
+    overflow-wrap:anywhere;
+    line-height:1.5;
+}
+.badge-ejemplo,
+.metodo-numero{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:800;
+    background:#e5e7eb;
+    color:#111827;
+    border-radius:999px;
+    padding:6px 10px;
+    font-size:.85rem;
+}
+.metodo-numero{
+    width:34px;
+    height:34px;
+    padding:0;
+    background:#111827;
+    color:#ffffff;
+}
+.flecha-ejemplo{
+    text-align:center;
+    font-size:1.5rem;
+    font-weight:900;
+    margin:8px 0 2px;
+    color:#111827;
+}
+.resultado-mini{
+    margin-top:12px;
+    background:#f8fafc;
+    border-radius:10px;
+    padding:10px;
+    overflow-x:auto;
+}
+
+.mini-ayuda{
+    font-size:.92rem;
+    color:#475569;
+    margin:8px 0 0 0;
+    line-height:1.45;
+}
+.teclado-pi{
+    margin-top:8px;
+}
+.teclado-pi .tecla-math{
+    padding:6px 11px;
+}
+
+/* ===== V9: constantes y orden de cinemática ===== */
+.cinematica-buscador{
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+}
+.cinematica-opciones-arriba{
+    width:100%;
+}
+.campo-opcion-cinematica{
+    background:#ffffff;
+    border:1px solid #dbe3ef;
+    border-radius:16px;
+    padding:16px;
+    box-shadow:0 8px 22px rgba(15,23,42,.06);
+}
+.campo-opcion-cinematica label{
+    font-weight:800;
+    color:#111827;
+}
+.campo-opcion-cinematica select{
+    width:100%;
+    margin-top:8px;
+}
+.cinematica-captura{
+    width:100%;
+}
+.cinematica-captura .campo-math{
+    width:100%;
+    box-sizing:border-box;
+}
+.cinematica-intervalos{
+    margin-top:0;
+}
+.constantes-entrada .tecla-math,
+.teclado-pi .tecla-math{
+    min-width:38px;
+    text-align:center;
+}
+
+
+/* ===== Esbozo de integral definida ===== */
+.grafica-panel-clara{
+    background:#ffffff !important;
+    border:1px solid #dbe3ef !important;
+}
+.grafica-panel-clara h4{
+    color:#111827 !important;
+}
+.chart-wrap-esbozo{
+    min-height:520px;
+}
+.chart-wrap-esbozo canvas{
+    min-height:500px;
+}
+.ayuda-botones-esbozo{
+    margin-top:8px;
+}
+@media (max-width:850px){
+    .chart-wrap-esbozo{min-height:430px;}
+    .chart-wrap-esbozo canvas{min-height:410px;}
+}
+
+/* ===== Esbozo interactivo estilo Symbolab ===== */
+.pagina-esbozo .centro-blanco{
+    max-width: min(1580px, 98vw);
+    width: 98vw;
+}
+.pagina-esbozo .panel-cuerpo{
+    padding: 16px;
+}
+.pagina-esbozo .ayuda{
+    margin: 10px 0;
+}
+.resumen-esbozo-compacto,
+.pagina-esbozo #esbozo-info{
+    margin-top: 12px;
+    padding: 12px 14px;
+    border-radius: 12px;
+}
+.resumen-esbozo-compacto h4,
+.pagina-esbozo #esbozo-info h4{
+    margin: 0 0 8px;
+    font-size: 0.95rem;
+}
+.chips-datos-esbozo{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    align-items:center;
+}
+.chips-datos-esbozo span{
+    display:inline-flex;
+    align-items:center;
+    gap:5px;
+    padding:7px 10px;
+    border:1px solid #dbe3ef;
+    border-radius:999px;
+    background:#ffffff;
+    color:#1f2937;
+    font-size:0.88rem;
+    line-height:1.35;
+}
+.grafica-symbolab{
+    margin-top: 14px;
+    padding: 12px;
+    background:#ffffff !important;
+    border:1px solid #cbd5e1 !important;
+    border-radius:14px;
+}
+.toolbar-grafica{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:16px;
+    margin-bottom:8px;
+}
+.toolbar-grafica h4{
+    margin:0 !important;
+    color:#0f172a !important;
+}
+.toolbar-grafica-botones{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+}
+.toolbar-grafica-botones button{
+    min-height:34px;
+    padding:8px 12px;
+    border-radius:10px;
+    font-size:0.9rem;
+}
+.ayuda-grafica-interactiva{
+    padding:8px 10px;
+    border-left:4px solid #2563eb;
+    border-radius:10px;
+    background:#eff6ff;
+    color:#1e3a8a;
+    font-weight:700;
+}
+.chart-wrap-esbozo{
+    min-height:690px;
+    border:1px solid #94a3b8;
+    border-radius:12px;
+    overflow:hidden;
+    background:#ffffff;
+}
+.chart-wrap-esbozo canvas{
+    min-height:670px;
+    cursor:grab;
+    image-rendering:auto;
+}
+.chart-wrap-esbozo canvas.arrastrando-grafica{
+    cursor:grabbing;
+}
+.coordenadas-grafica{
+    margin-top:8px;
+    padding:8px 10px;
+    border:1px solid #dbe3ef;
+    border-radius:10px;
+    background:#f8fafc;
+    color:#334155;
+    font-weight:800;
+    font-size:0.92rem;
+    text-align:right;
+}
+.pagina-esbozo #esbozo-control-rectangulos{
+    margin:12px 0;
+    padding:12px;
+}
+.pagina-esbozo #esbozo-control-rectangulos .grid-form{
+    gap:12px;
+}
+@media (max-width:850px){
+    .pagina-esbozo .centro-blanco{width:100%;max-width:100%;}
+    .toolbar-grafica{align-items:stretch;flex-direction:column;}
+    .toolbar-grafica-botones button{width:auto;}
+    .chart-wrap-esbozo{min-height:500px;}
+    .chart-wrap-esbozo canvas{min-height:480px;}
+}
+
+/* ===== Ajustes v12: gráfica tipo Symbolab y datos compactos ===== */
+.pagina-esbozo .centro-blanco{max-width:min(1760px,99vw);width:99vw;}
+.pagina-esbozo .panel-cuerpo{padding:12px;}
+.resumen-esbozo-compacto,
+.pagina-esbozo #esbozo-info{padding:8px 10px;margin-top:8px;}
+.chips-datos-esbozo{gap:6px;}
+.chips-datos-esbozo span{font-size:.78rem;padding:5px 8px;line-height:1.25;}
+.grafica-symbolab{padding:10px;margin-top:10px;}
+.chart-wrap-esbozo{min-height:760px;border:1.5px solid #64748b;}
+.chart-wrap-esbozo canvas{min-height:740px;}
+.toolbar-grafica-botones button{min-height:31px;padding:6px 10px;font-size:.82rem;}
+.ayuda-grafica-interactiva{font-size:.82rem;padding:6px 9px;margin:6px 0;}
+.coordenadas-grafica{font-size:.82rem;padding:6px 9px;}
+@media (max-width:850px){.chart-wrap-esbozo{min-height:520px}.chart-wrap-esbozo canvas{min-height:500px}}
+
+
+/* ===== Navegación limpia para recursos separados ===== */
+.panel-opciones-definida .panel-cuerpo{
+    padding-top:20px;
+}
+.tarjetas-definida{
+    display:flex;
+    flex-wrap:wrap;
+    gap:14px;
+    align-items:center;
+}
+.tarjetas-definida .boton-enlace,
+.lista-enlaces-formales .boton-enlace{
+    border-radius:999px;
+    padding:13px 22px;
+    background:#111827;
+    color:#ffffff !important;
+    border:2px solid #111827;
+    box-shadow:none;
+    letter-spacing:.1px;
+}
+.tarjetas-definida .boton-enlace:hover,
+.lista-enlaces-formales .boton-enlace:hover{
+    background:#ffffff;
+    color:#111827 !important;
+}
+.tarjetas-definida .boton-enlace{
+    font-size:1.05rem;
+    min-width:210px;
+    text-align:center;
+}
+@media(max-width:850px){
+    .tarjetas-definida{flex-direction:column;align-items:stretch;}
+    .tarjetas-definida .boton-enlace{width:100%;}
+}

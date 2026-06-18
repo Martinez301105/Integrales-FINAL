@@ -1,0 +1,70 @@
+
+\documentclass[10pt,landscape]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage{geometry}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\geometry{margin=1.2cm}
+\renewcommand{\arraystretch}{1.35}
+\setlength{\tabcolsep}{4pt}
+\definecolor{azulmac}{RGB}{74,126,187}
+\hypersetup{colorlinks=true,linkcolor=azulmac,urlcolor=azulmac}
+\begin{document}
+\begin{center}
+{\LARGE\bfseries Glosario de Integrales - Cálculo II}\\[3mm]
+{\large Resultados basados en el archivo \texttt{glosario.py}}
+\end{center}
+
+\small
+\begin{longtable}{|>{\centering\arraybackslash}p{0.7cm}|>{\centering\arraybackslash}p{2.4cm}|p{4.2cm}|p{11.8cm}|p{7.2cm}|}
+\hline
+\rowcolor{azulmac!18}
+\textbf{No.} & \textbf{Tipo} & \textbf{Título} & \textbf{Enunciado formal} & \textbf{Utilidad} \\
+\hline
+\endfirsthead
+\hline
+\rowcolor{azulmac!18}
+\textbf{No.} & \textbf{Tipo} & \textbf{Título} & \textbf{Enunciado formal} & \textbf{Utilidad} \\
+\hline
+\endhead
+1 & Definición & Partición de un intervalo & Sea $I=[a,b]\subset \mathbb{R}$. Una partición de $I$ es un conjunto finito $P=\{t_0,t_1,\ldots,t_n\}$ tal que $a=t_0<t_1<\cdots<t_n=b$. & Sirve para dividir el intervalo de integración y construir sumas inferiores, superiores y de Riemann. \\ \hline
+2 & Definición & Norma de una partición & Para $P=\{t_0,\ldots,t_n\}$ partición de $[a,b]$, se define $\lVert PVert=\max\{|t_i-t_{i-1}|:i=1,\ldots,n\}$. & Mide el tamaño del subintervalo más grande; es clave para el límite de sumas de Riemann. \\ \hline
+3 & Definición & Partición regular & Una partición $P$ de $[a,b]$ es regular si todos los subintervalos tienen la misma longitud; es decir, $t_i-t_{i-1}=rac{b-a}{n}$ para todo $i$. & Permite aproximar integrales mediante subintervalos de igual tamaño. \\ \hline
+4 & Definición & Suma superior e inferior de Darboux & Sea $f:[a,b]	o\mathbb{R}$ acotada y $P=\{t_0,\ldots,t_n\}$. Para cada subintervalo se toman $M_i=\sup\{f(x):x\in[t_{i-1},t_i]\}$ y $m_i=\inf\{f(x):x\in[t_{i-1},t_i]\}$. La suma superior es $S(f,P)=\sum M_i(t_i-t_{i-1})$ y la suma inferior es $s(f,P)=\sum m_i(t_i-t_{i-1})$. & Base formal para definir integrabilidad mediante Darboux. \\ \hline
+5 & Teorema & Orden en $\mathbb{Q}$ & Para números racionales $rac{p}{q}$ y $rac{r}{t}$, con $q,t>0$, el orden se compara mediante productos cruzados: $rac{p}{q}\leqrac{r}{t}$ si y sólo si $pt\leq rq$. & Aparece como apoyo formal para comparar cantidades en las construcciones de particiones. \\ \hline
+6 & Proposición & Refinamiento de particiones & Si $Q$ es un refinamiento de $P$, entonces la suma inferior no disminuye y la suma superior no aumenta: $s(f,P)\leq s(f,Q)\leq S(f,Q)\leq S(f,P)$. & Explica por qué al refinar particiones se mejora la aproximación de la integral. \\ \hline
+7 & Definición & Integral inferior y superior & La integral inferior se define como $\sup\{s(f,P):P	ext{ partición de }[a,b]\}$ y la integral superior como $\inf\{S(f,P):P	ext{ partición de }[a,b]\}$. & Permite definir la integral sin usar primitivas. \\ \hline
+8 & Definición & Integrabilidad de Darboux & Una función acotada $f:[a,b]	o\mathbb{R}$ es Darboux integrable si su integral inferior coincide con su integral superior. En ese caso, dicho valor común se denota por $\int_a^b f(x)\,dx$. & Es una definición formal de integral definida. \\ \hline
+9 & Teorema & Funciones monótonas son integrables & Si $f:[a,b]	o\mathbb{R}$ es una función monótona creciente o decreciente, entonces $f$ es integrable. & Da un criterio práctico para saber cuándo existe la integral definida. \\ \hline
+10 & Teorema & Propiedades básicas de la integral & Si $f$ es integrable en $[a,b]$ y $c\in[a,b]$, entonces $\int_a^b f=\int_a^c f+\int_c^b f$. Además, si $m\leq f(x)\leq M$, entonces $m(b-a)\leq\int_a^b f\leq M(b-a)$. & Resume aditividad por intervalos y estimaciones de la integral. \\ \hline
+11 & Definición & Suma de Riemann & Sea $P=\{t_0,\ldots,t_n\}$ una partición de $[a,b]$ y $A=\{s_1,\ldots,s_n\}$ una selección con $s_i\in[t_{i-1},t_i]$. La suma de Riemann es $\sum f(s_i)(t_i-t_{i-1})$. & Construye aproximaciones de la integral usando puntos elegidos en cada subintervalo. \\ \hline
+12 & Corolario & Cotas de las sumas de Riemann & Si $f:[a,b]	o\mathbb{R}$ es acotada, $P$ es una partición y $A$ una selección de $P$, entonces $s(f,P)\leq S(f,P,A)\leq S(f,P)$. & Conecta las sumas de Riemann con las sumas inferior y superior de Darboux. \\ \hline
+13 & Definición & Límite de sumas de Riemann & Diremos que $L$ es el límite de las sumas de Riemann de $f$ cuando $\lVert PVert	o0$ si para todo $arepsilon>0$ existe $\delta>0$ tal que, si $\lVert PVert<\delta$, entonces $|S(f,P,A)-L|<arepsilon$ para toda selección $A$. & Formaliza la integral como límite de aproximaciones. \\ \hline
+14 & Teorema & Equivalencia Darboux-Riemann & Si $f:[a,b]	o\mathbb{R}$ es acotada, entonces $f$ es Darboux integrable en $[a,b]$ si y sólo si existe el límite de sus sumas de Riemann cuando $\lVert PVert	o0$. En tal caso, ambos valores coinciden. & Une las dos formas principales de definir la integral definida. \\ \hline
+15 & Teorema & Linealidad de la integral & Si $f$ y $g$ son integrables en $[a,b]$ y $lpha,eta\in\mathbb{R}$, entonces $lpha f+eta g$ es integrable y $\int_a^b(lpha f+eta g)=lpha\int_a^b f+eta\int_a^b g$. & Permite separar constantes, sumas y restas dentro de una integral. \\ \hline
+16 & Teorema & Monotonía de la integral & Si $f$ y $g$ son integrables en $[a,b]$ y $f(x)\geq g(x)$ para todo $x\in[a,b]$, entonces $\int_a^b f(x)\,dx\geq\int_a^b g(x)\,dx$. & Sirve para comparar áreas o acotar integrales. \\ \hline
+17 & Teorema & Desigualdad con valor absoluto & Si $f$ es integrable en $[a,b]$, entonces $|f|$ es integrable y $\left|\int_a^b f(x)\,dxight|\leq\int_a^b |f(x)|\,dx$. & Se usa para estimar integrales y controlar errores. \\ \hline
+18 & Definición & Función Lipschitziana & Una función $f:A\subseteq\mathbb{R}	o\mathbb{R}$ es Lipschitziana si existe $k>0$ tal que $|f(x)-f(y)|\leq k|x-y|$ para todo $x,y\in A$. & Ayuda a garantizar buen comportamiento de funciones relacionadas con integrabilidad y continuidad. \\ \hline
+19 & Definición & Función integral & Si $f:[a,b]	o\mathbb{R}$ es Riemann integrable, se define $F:[a,b]	o\mathbb{R}$ por $F(x)=\int_a^x f(t)\,dt$. & Es la función acumulada asociada a una integral. \\ \hline
+20 & Teorema & Teorema fundamental del cálculo & Si $f$ es continua en $[a,b]$ y $F(x)=\int_a^x f(t)\,dt$, entonces $F$ es derivable en $(a,b)$ y $F'(x)=f(x)$. & Conecta derivadas con integrales. \\ \hline
+21 & Teorema & Regla de Barrow & Si $f$ es continua en $[a,b]$ y $G$ es una primitiva de $f$, entonces $\int_a^b f(x)\,dx=G(b)-G(a)$. & Permite calcular integrales definidas usando primitivas. \\ \hline
+22 & Teorema & Teorema del valor medio para integrales & Si $f$ es continua en $[a,b]$, entonces existe $c\in[a,b]$ tal que $\int_a^b f(x)\,dx=f(c)(b-a)$. & Interpreta la integral como valor promedio por longitud del intervalo. \\ \hline
+23 & Teorema & Propiedades de la integración indefinida & Si $f,g:I	o\mathbb{R}$ son continuas y $c\in\mathbb{R}$, entonces $\int(f+g)=\int f+\int g$ y $\int cf=c\int f$, considerando la constante de integración. & Reglas algebraicas básicas para resolver integrales indefinidas. \\ \hline
+24 & Teorema & Primitivas de la función cero & Las únicas primitivas de la función cero en $\mathbb{R}$ son las funciones constantes. & Justifica la aparición de la constante $+C$. \\ \hline
+25 & Teorema & Relación entre primitivas & Si $F$ es una primitiva de $f$ en $[a,b]$, entonces toda primitiva $G$ de $f$ en $[a,b]$ satisface $G(x)=F(x)+C$ para alguna constante $C$. & Explica por qué una integral indefinida representa una familia de funciones. \\ \hline
+26 & Teorema & Cambio de variable & Si $g$ es derivable y $f$ es continua, entonces $\int f(g(x))g'(x)\,dx=F(g(x))+C$, donde $F'=f$. & Formaliza el método de sustitución. \\ \hline
+27 & Teorema & Integración por partes & Si $f$ y $g$ son derivables, entonces $\int f(x)g'(x)\,dx=f(x)g(x)-\int f'(x)g(x)\,dx$. & Método esencial para productos de funciones. \\ \hline
+28 & Definición & Parte fraccionaria de una función racional & Si $f(x)=rac{P(x)}{Q(x)}$, con $P,Q$ polinomios y $Q
+eq0$, la parte fraccionaria se obtiene al dividir $P$ entre $Q$: $f(x)=C(x)+rac{R(x)}{Q(x)}$, donde $\deg(R)<\deg(Q)$. & Prepara el uso de fracciones parciales para integrar funciones racionales. \\ \hline
+29 & Definición & Discontinuidad interior & Sea $f:[a,b]\setminus\{c\}	o\mathbb{R}$, con $c\in(a,b)$, donde $c$ es punto de discontinuidad o indefinición. Se consideran integrales en $[a,d]$ y $[m,b]$, con $a\leq d<c<m\leq b$. & Permite definir integrales impropias cuando hay una singularidad dentro del intervalo. \\ \hline
+30 & Definición & Integral impropia izquierda & Si existe $\lim_{t	o c^-}\int_a^t f(x)\,dx$, se define $\int_a^c f(x)\,dx=\lim_{t	o c^-}\int_a^t f(x)\,dx$. & Trata integrales con problema al acercarse al extremo derecho $c$. \\ \hline
+31 & Definición & Integral impropia derecha & Si existe $\lim_{t	o c^+}\int_t^b f(x)\,dx$, se define $\int_c^b f(x)\,dx=\lim_{t	o c^+}\int_t^b f(x)\,dx$. & Trata integrales con problema al acercarse al extremo izquierdo $c$. \\ \hline
+32 & Definición & Integral impropia en $(-\infty,b]$ & Si $f:(-\infty,b]	o\mathbb{R}$ es integrable en cada $[a,b]$, entonces, si existe el límite, $\int_{-\infty}^b f(x)\,dx=\lim_{t	o-\infty}\int_t^b f(x)\,dx$. & Define integrales sobre intervalos infinitos hacia la izquierda. \\ \hline
+33 & Definición & Integral impropia en $[a,\infty)$ & Si $f:[a,\infty)	o\mathbb{R}$ es integrable en cada $[a,b]$, entonces, si existe el límite, $\int_a^\infty f(x)\,dx=\lim_{t	o\infty}\int_a^t f(x)\,dx$. & Define integrales sobre intervalos infinitos hacia la derecha. \\ \hline
+\end{longtable}
+\end{document}

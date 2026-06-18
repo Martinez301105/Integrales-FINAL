@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cambio de variable</title>
+    <link rel="stylesheet" href="estilos-calculadora.css">
+    <script>window.MathJax = {tex: {inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']]}, svg: {fontCache: 'global'}};</script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" id="MathJax-script" async></script>
+</head>
+<body>
+<div class="header-negro">Cálculo</div>
+<div class="pantalla-dividida">
+    <div class="lateral"></div>
+    <main class="centro-blanco">
+        <a href="metodos-integracion.html" class="btn-volver">← Volver a métodos de integración</a>
+        <section class="panel pagina-teoria">
+            <div class="panel-titulo">CAMBIO DE VARIABLE</div>
+            <div class="panel-cuerpo">
+                <p class="ayuda">El cambio de variable por composición evalúa integrales donde aparece una función compuesta multiplicada por la derivada de su función interna.</p>
+
+                <h2>¿Qué es?</h2>
+                <p>Es un criterio para reconocer integrales de la forma \(f(g(x))g'(x)\). Si la integral no contiene el factor \(g'(x)\), este método no debe forzarse.</p>
+
+                <h2>Teorema usado</h2>
+                <div class="formula-bloque">
+                    \[
+                    \text{Si }F'(x)=f(x),\quad \int f(g(x))g'(x)\,dx=F(g(x))+C
+                    \]
+                </div>
+
+                <h2>¿Cuándo se usa?</h2>
+                <p>Se usa cuando una parte de la integral está dentro de otra función y también aparece la derivada de esa función interna. Por ejemplo, en \(2x\cos(x^2)\), la función interna es \(g(x)=x^2\) y su derivada es \(g'(x)=2x\).</p>
+
+                <h2>Pasos ordenados</h2>
+                <ol class="lista-pasos-teoria">
+                    <li>Identificar la función interna \(g(x)\).</li>
+                    <li>Calcular \(g'(x)\).</li>
+                    <li>Verificar que el integrando tenga la forma \(f(g(x))g'(x)\).</li>
+                    <li>Identificar la función externa \(f(x)\).</li>
+                    <li>Encontrar una primitiva \(F(x)\), donde \(F'(x)=f(x)\).</li>
+                    <li>Aplicar directamente \(F(g(x))+C\).</li>
+                </ol>
+
+                <h2>Ejemplo sencillo</h2>
+                <p>Resolver:</p>
+                <div class="formula-bloque">\[\int 2x\cos(x^2)\,dx\]</div>
+                <ol class="lista-pasos-teoria">
+                    <li>La función interna es \(g(x)=x^2\).</li>
+                    <li>Su derivada es \(g'(x)=2x\).</li>
+                    <li>El integrando cumple \(2x\cos(x^2)=f(g(x))g'(x)\).</li>
+                    <li>La función externa es \(f(x)=\cos(x)\).</li>
+                    <li>Una primitiva es \(F(x)=\operatorname{sen}(x)\).</li>
+                    <li>Aplicamos el teorema: \(F(g(x))+C=\operatorname{sen}(x^2)+C\).</li>
+                </ol>
+                <div class="resultado-final"><b>Resultado final:</b> \[\operatorname{sen}(x^2)+C\]</div>
+
+                <div class="enlace-teoria referencia-formal">
+                    <b>Referencia principal del proyecto:</b><br>
+                    <a href="glosario.pdf" target="_blank" rel="noopener noreferrer">Abrir glosario.pdf</a>
+                </div>
+                <div class="botones"><a class="boton" href="metodos-integracion.html">Volver a métodos de integración</a></div>
+            </div>
+        </section>
+    </main>
+    <div class="lateral"></div>
+</div>
+</body>
+</html>

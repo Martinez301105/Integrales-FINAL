@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Área entre curvas</title>
+    <link rel="stylesheet" href="estilos-calculadora.css">
+    <script>
+window.MathJax = {tex: {inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']]}, svg: {fontCache: 'global'}};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" id="MathJax-script" async></script>
+</head>
+<body>
+<div class="header-negro">Cálculo</div>
+<div class="pantalla-dividida">
+    <div class="lateral"></div>
+    <main class="centro-blanco">
+        <a href="integral-definida.html" class="btn-volver">← Volver a Integral definida</a>
+
+        <section id="area-curvas" class="panel">
+            <div class="panel-titulo">ÁREA ENTRE CURVAS</div>
+            <div class="panel-cuerpo">
+                <p class="ayuda">Calcula \(A=\int_a^b |f(x)-g(x)|\,dx\). El usuario escribe dos funciones cualesquiera; el sistema aproxima el área y genera una gráfica comparativa.</p>
+                <div class="grid-form">
+                    <div class="campo campo-math"><label>Función f(x)</label><input id="area-f" type="text" placeholder="Ej. x^2, sen(x), 1/x" oninput="Calculadora.actualizarVistaLatex('area-f','area-f-preview',false)"><div id="area-f-preview" class="preview-latex">\[\text{Escribe }f(x)\]</div></div>
+                    <div class="campo campo-math"><label>Función g(x)</label><input id="area-g" type="text" placeholder="Ej. x+1, cos(x), 0" oninput="Calculadora.actualizarVistaLatex('area-g','area-g-preview',false)"><div id="area-g-preview" class="preview-latex">\[\text{Escribe }g(x)\]</div></div>
+                    <div class="campo"><label>Límite inferior a</label><input id="area-a" type="text" data-max-digits="10" placeholder="Ej. 0, pi/2"></div>
+                    <div class="campo"><label>Límite superior b</label><input id="area-b" type="text" data-max-digits="10" placeholder="Ej. 1, pi"></div>
+                    <div class="campo"><label>n trapecios</label><input id="area-n" type="number" value="1000" min="1"></div>
+                </div>
+                <div class="botones"><button type="button" onclick="Calculadora.calcularArea()">Calcular área y graficar</button></div>
+                <div id="resultado-area"></div>
+                <div class="grafica-panel grafica-panel-clara grafica-symbolab grafica-area-curvas" style="display:none;">
+                    <div class="toolbar-grafica"><h4>Área entre curvas</h4></div>
+                    <div class="chart-wrap chart-wrap-esbozo"><canvas id="area-canvas" aria-label="Área entre curvas"></canvas></div>
+                </div>
+            </div>
+        </section>
+
+
+
+        
+    </main>
+</div>
+<script src="config.js"></script>
+<script src="calculadora.js"></script>
+</body>
+</html>

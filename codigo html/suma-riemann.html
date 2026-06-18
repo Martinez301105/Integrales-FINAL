@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suma de Riemann</title>
+    <link rel="stylesheet" href="estilos-calculadora.css">
+    <script>
+window.MathJax = {tex: {inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']]}, svg: {fontCache: 'global'}};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" id="MathJax-script" async></script>
+</head>
+<body>
+<div class="header-negro">Cálculo</div>
+<div class="pantalla-dividida">
+    <div class="lateral"></div>
+    <main class="centro-blanco">
+        <a href="integral-definida.html" class="btn-volver">← Volver a Integral definida</a>
+
+        <section id="sumas-riemann" class="panel">
+            <div class="panel-titulo">SUMA DE RIEMANN</div>
+            <div class="panel-cuerpo">
+                <p class="ayuda">Primero se mostrará la regla de suma de Riemann, luego la función, partición, selección y tabla de cálculo. <a href="glosario.pdf#page=9" target="_blank" rel="noopener noreferrer">Ver definición de suma de Riemann en glosario.pdf</a>.</p>
+                <div class="grid-form">
+                    <div class="campo campo-math"><label>Función f(x)</label><input id="rie-f" type="text" placeholder="Ej. x^2, sen(x), 1/(x+2)" oninput="Calculadora.actualizarVistaLatex('rie-f','rie-f-preview',false)"><div id="rie-f-preview" class="preview-latex">\[\text{Escribe }f(x)\]</div></div>
+                    <div class="campo"><label>Partición P = {t0,...,tn}</label><input id="rie-p" type="text" placeholder="Ej. 0, 1/4, 1/2, 1"></div>
+                    <div class="campo"><label>¿Refinar partición?</label><select id="rie-refinar"><option value="no">No refinar</option><option value="si">Sí, dividir cada subintervalo</option></select></div>
+                    <div class="campo"><label>Factor de refinamiento</label><input id="rie-factor" type="number" value="2" min="2"></div>
+                    <div class="campo"><label>Selección A</label><select id="rie-metodo"><option value="izquierda">Extremo izquierdo</option><option value="derecha">Extremo derecho</option><option value="media">Punto medio</option><option value="manual">Manual: escribir s_i</option></select></div>
+                    <div class="campo"><label>Selección manual s1,...,sn</label><input id="rie-xi" type="text" placeholder="Ej. 1/8, 3/8, 3/4"></div>
+                </div>
+                <div class="botones"><button type="button" onclick="Calculadora.calcularRiemann()">Calcular suma de Riemann</button></div>
+                <div id="resultado-riemann"></div>
+            </div>
+        </section>
+
+
+
+        
+    </main>
+</div>
+<script src="config.js"></script>
+<script src="calculadora.js"></script>
+</body>
+</html>

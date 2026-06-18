@@ -1,0 +1,32 @@
+PARA USAR LOS MÉTODOS DE INTEGRACIÓN DESDE LA PÁGINA WEB
+
+1. Abre una terminal en esta carpeta:
+   backend-python/CalculadoraDeIntegrales
+
+2. Instala dependencias:
+   python -m pip install -r requirements.txt
+
+3. Levanta el backend:
+   python -m uvicorn app:app --reload --host 127.0.0.1 --port 8000
+
+   También funciona:
+   uvicorn app:app --reload
+
+4. Verifica que esté activo abriendo:
+   http://127.0.0.1:8000/api/salud
+
+5. Abre en el navegador:
+   codigo html/metodos-integracion.html
+
+Notas:
+- El usuario NO escribe derivadas.
+- Cambio de variable pide integrando y cambio g(x).
+- Para el caso clásico, el integrando debe tener la forma f(g(x))g'(x).
+  Ejemplo recomendado: 2*x*cos(x^2) con g(x)=x^2.
+- También se agregó soporte para sustitución general por rama inversa cuando SymPy puede resolverla.
+- Fracciones parciales acepta la función racional original, por ejemplo:
+  (3*x+5)/(x^2+x-2)
+  (3x+5)/(x^2+x-2)
+  3/(x-2)+5/(x+1)
+  x^2/(x+1)
+  ∫ (3x+5)/(x^2+x-2) dx

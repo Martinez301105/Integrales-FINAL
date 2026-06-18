@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora automática de integrales</title>
+    <link rel="stylesheet" href="estilos-calculadora.css">
+    <script>
+window.MathJax = {tex: {inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']]}, svg: {fontCache: 'global'}};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" id="MathJax-script" async></script>
+</head>
+<body>
+<div class="header-negro">Cálculo</div>
+<div class="pantalla-dividida">
+    <div class="lateral"></div>
+    <div class="centro-blanco">
+        <a href="index.html" class="btn-volver">← Volver al Menú Principal</a>
+        <div class="panel">
+            <div class="panel-titulo">CALCULADORA AUTOMÁTICA DE INTEGRALES</div>
+            <div class="panel-cuerpo">
+                <p class="ayuda">
+                    Escribe una sola integral o solamente el integrando. El programa intentará detectar automáticamente
+                    si conviene usar constante, potencia, polinomio, cambio de variable, por partes,
+                    fracciones parciales, sustitución trigonométrica, exponenciales, logaritmos o trigonométricas.
+                </p>
+
+                <div class="buscador-symbolab">
+                    <div class="grid-form">
+                        <div class="campo campo-math">
+                            <label>Integral o integrando</label>
+                            <input id="auto-exp" type="text" placeholder="Ej. 2*x*cos(x^2), x*exp(x), (3*x+5)/(x^2+x-2)" oninput="Calculadora.actualizarVistaLatex('auto-exp','auto-exp-preview',true)">
+                            <div id="auto-exp-preview" class="preview-latex">\[\text{Escribe una integral}\]</div>
+                            <div class="teclado-math">
+                                <button type="button" class="tecla-math" onclick="Calculadora.insertarMath('auto-exp','\\int ')">∫</button>
+                                <button type="button" class="tecla-math" onclick="Calculadora.insertarMath('auto-exp',' dx')">dx</button>
+                                <button type="button" class="tecla-math" onclick="Calculadora.insertarMath('auto-exp','x^2')">x²</button>
+                                <button type="button" class="tecla-math" onclick="Calculadora.insertarMath('auto-exp','x^()')">xⁿ</button>
+                                <button type="button" class="tecla-math" onclick="Calculadora.insertarMath('auto-exp','sqrt()')">√</button>
+                                <button type="button" class="tecla-math" onclick="Calculadora.insertarMath('auto-exp','\\frac{}{}')">frac</button>
+                                <button type="button" class="tecla-math" onclick="Calculadora.insertarMath('auto-exp','sen()')">sen</button>
+                                <button type="button" class="tecla-math" onclick="Calculadora.insertarMath('auto-exp','cos()')">cos</button>
+                                <button type="button" class="tecla-math" onclick="Calculadora.insertarMath('auto-exp','log()')">log</button>
+                                <button type="button" class="tecla-math" onclick="Calculadora.insertarMath('auto-exp','exp(x)')">e^x</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ayuda">
+                        Para integral indefinida deja vacíos los límites. Para integral definida escribe ambos límites.
+                        Los límites numéricos sí están restringidos a máximo 10 cifras.
+                    </div>
+
+                    <div class="grid-form">
+                        <div class="campo">
+                            <label>Límite inferior opcional</label>
+                            <input id="auto-a" type="text" data-max-digits="10" placeholder="Ej. 0">
+                        </div>
+                        <div class="campo">
+                            <label>Límite superior opcional</label>
+                            <input id="auto-b" type="text" data-max-digits="10" placeholder="Ej. 2">
+                        </div>
+                    </div>
+
+                    <div class="botones">
+                        <button type="button" onclick="Calculadora.calcularAutomatica()">Detectar método y resolver</button>
+                    </div>
+                </div>
+
+                <div class="enlace-teoria">
+                    <b>Referencia principal:</b> archivo glosario.pdf incluido en la página.<br>
+                    <a href="glosario.pdf" target="_blank" rel="noopener noreferrer">Abrir glosario.pdf</a>
+                </div>
+
+                <div id="resultado-auto"></div>
+            </div>
+        </div>
+    </div>
+    <div class="lateral"></div>
+</div>
+<script src="config.js"></script>
+<script src="calculadora.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+    if(window.Calculadora){
+        Calculadora.actualizarVistaLatex('auto-exp','auto-exp-preview',true);
+        Calculadora.prepararValidacionDigitos(document.body);
+    }
+});
+</script>
+</body>
+</html>

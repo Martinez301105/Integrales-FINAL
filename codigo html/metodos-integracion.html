@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Métodos de integración</title>
+    <link rel="stylesheet" href="estilos-calculadora.css">
+    <!-- KaTeX: renderizado rápido para vista tipo Symbolab. -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+</head>
+<body>
+<div class="header-negro">Cálculo</div>
+<div class="pantalla-dividida">
+    <div class="lateral"></div>
+    <div class="centro-blanco">
+        <a href="index.html" class="btn-volver">← Volver al Menú Principal</a>
+        <div class="panel">
+            <div class="panel-titulo">MÉTODOS DE INTEGRACIÓN</div>
+            <div class="panel-cuerpo">
+                <p class="ayuda">Métodos de integración con pasos en LaTeX: cambio de variable, sustitución trigonométrica, por partes y fracciones parciales. Cada método incluye instrucciones y atajos para resolver paso a paso.</p>
+<div class="grid-form"><div class="campo"><label>Menú de métodos de integración</label><select id="tipo-metodo" onchange="Calculadora.renderMetodoForm()"><option value="cambio">1. Cambio de variable</option><option value="trigsub">2. Sustitución trigonométrica</option><option value="partes">3. Por partes</option><option value="fracciones">4. Fracciones parciales</option></select></div></div>
+<div id="form-metodo"></div>
+<div id="resultado-metodo"></div>
+<div class="seccion-definiciones-formales bloque-definiciones-metodos">
+    <h3>Definiciones formales</h3>
+    <div class="lista-enlaces-formales">
+        <a class="boton-enlace" href="cambio-variable.html">Cambio de variable</a>
+        <a class="boton-enlace" href="integracion-por-partes.html">Integración por partes</a>
+        <a class="boton-enlace" href="fracciones-parciales.html">Fracciones parciales</a>
+    </div>
+</div>
+            </div>
+        </div>
+    </div>
+    <div class="lateral"></div>
+</div>
+<script src="config.js"></script>
+<script src="calculadora.js"></script>
+</body>
+</html>
