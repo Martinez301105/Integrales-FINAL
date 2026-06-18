@@ -385,6 +385,10 @@ def _es_constante_respecto_x(expresion: sp.Expr) -> bool:
     return not sp.simplify(expresion).has(x)
 
 
+def _contiene_integral_sin_resolver(expresion: sp.Expr) -> bool:
+    return isinstance(expresion, sp.Integral) or bool(expresion.has(sp.Integral))
+
+
 def _integral_cambio_por_factores(
     compuesta: sp.Expr,
     factor_derivada: sp.Expr,
@@ -722,18 +726,20 @@ def resolver_por_partes(integrando_texto: str) -> dict[str, Any]:
     f_prima = sp.simplify(sp.diff(f, x))
     g = sp.integrate(g_prima, x)
 
-    if isinstance(g, sp.Integral):
+    if _contiene_integral_sin_resolver(g):
         raise ValueError("No pude encontrar una primitiva para el factor g'(x) identificado automáticamente.")
 
     integral_restante = sp.simplify(f_prima * g)
     integral_restante_resuelta = sp.integrate(integral_restante, x)
 
-    if isinstance(integral_restante_resuelta, sp.Integral):
+    if _contiene_integral_sin_resolver(integral_restante_resuelta):
         raise ValueError(
             "Pude separar la integral, pero no pude resolver la integral restante por partes."
         )
 
     resultado = sp.simplify(f * g - integral_restante_resuelta)
+    if _contiene_integral_sin_resolver(resultado):
+        raise ValueError("El procedimiento por partes dejo una integral sin resolver dentro del resultado.")
 
     pasos_detallados = [
         paso(
@@ -1292,7 +1298,7 @@ def _resolver_basica_o_general(integrando_texto: str, integrando: sp.Expr) -> di
 
     if integrando.has(sp.exp):
         resultado = sp.integrate(integrando, x)
-        if not isinstance(resultado, sp.Integral):
+        if not _contiene_integral_sin_resolver(resultado):
             return _respuesta_simple(
                 "exponencial",
                 integrando_texto,
@@ -1304,7 +1310,7 @@ def _resolver_basica_o_general(integrando_texto: str, integrando: sp.Expr) -> di
 
     if integrando.has(sp.sin, sp.cos, sp.tan, sp.sec, sp.csc, sp.cot):
         resultado = sp.integrate(integrando, x)
-        if not isinstance(resultado, sp.Integral):
+        if not _contiene_integral_sin_resolver(resultado):
             return _respuesta_simple(
                 "trigonometrica",
                 integrando_texto,
@@ -1316,7 +1322,7 @@ def _resolver_basica_o_general(integrando_texto: str, integrando: sp.Expr) -> di
 
     if integrando.has(sp.log) or sp.simplify(integrando - 1 / x) == 0:
         resultado = sp.integrate(integrando, x)
-        if not isinstance(resultado, sp.Integral):
+        if not _contiene_integral_sin_resolver(resultado):
             metodo = "por_partes" if integrando.has(sp.log) else "logaritmica"
             return _respuesta_simple(
                 metodo,
@@ -1328,7 +1334,14 @@ def _resolver_basica_o_general(integrando_texto: str, integrando: sp.Expr) -> di
             )
 
     resultado = sp.integrate(integrando, x)
-    if isinstance(resultado, sp.Integral):
+    if _contiene_integral_sin_resolver(resultado):
+        if integrando.has(sp.exp):
+            raise ValueError(
+                "La expresion exponencial se pudo leer, pero no se encontro una primitiva cerrada para ese exponente. "
+                "Si el exponente es una funcion compuesta, agrega el factor derivada del exponente. "
+                "Por ejemplo: exp(x*x) por si sola no se resuelve por cambio directo, "
+                "pero 2*x*exp(x*x) si cumple f(g(x))g'(x)."
+            )
         if _tiene_funcion_trigonometrica_anidada(integrando):
             raise ValueError(
                 "La expresion si se pudo leer como funcion trigonometrica compuesta, "
@@ -1384,7 +1397,7 @@ def _resolver_indefinida_automatica(expresion_texto: str) -> dict[str, Any]:
 
     # 4) Por partes para productos o logaritmos no racionales.
     factores_variables = [f for f in sp.Mul.make_args(sp.factor(integrando)) if f.has(x)]
-    if len(factores_variables) >= 2 or integrando.has(sp.log, sp.atan, sp.asin, sp.acos):
+    if not integrando.has(sp.exp) and (len(factores_variables) >= 2 or integrando.has(sp.log, sp.atan, sp.asin, sp.acos)):
         try:
             respuesta = resolver_por_partes(expresion_texto)
             return _con_detector(
